@@ -10,9 +10,9 @@ class LoadModules
 
 	public function __construct()
 	{
-		$configs = new GlobalConfig;
+		$register = new RegisterModules;
 
-		$this->modules = $configs->modules;
+		$this->modules = $register->modules;
 	}
 
 	public function loadModules($obj)
