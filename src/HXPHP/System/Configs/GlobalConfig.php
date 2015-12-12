@@ -33,8 +33,7 @@ class GlobalConfig
                 //Modules
                 $this->modules = array(
                     'database',
-                    'mail',
-                    'auth'
+                    'mail'          
                 );
 
 		return $this;
