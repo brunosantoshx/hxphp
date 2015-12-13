@@ -8,6 +8,7 @@ class GlobalConfig
 	public $views;
 	public $controllers;
 	public $title;
+        public $modules;
 
 	public function __construct()
 	{
@@ -28,6 +29,13 @@ class GlobalConfig
 
 		//General
 		$this->title = 'HXPHP Framework';
+                
+                //Modules
+                $this->modules = array(
+                    'database',
+                    'mail',
+                    'auth'
+                );
 
 		return $this;
 	}

@@ -60,7 +60,7 @@ class Auth
 
 	/**
 	 * Autentica o usuário
-	 * @param  integet $user_id  ID do usuário
+	 * @param  integer $user_id  ID do usuário
 	 * @param  string $username  Nome de usuário
 	 */
 	public function login($user_id, $username)
