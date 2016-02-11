@@ -6,7 +6,7 @@ use HXPHP\System\Tools;
 
 class Request
 {
-	
+
 	/**
 	 * Atributos
 	 * @var null
@@ -60,7 +60,7 @@ class Request
 
 			$this->controller = Tools::filteredName($explode[0]).'Controller';
 			$this->action = lcfirst(Tools::filteredName($explode[1])).'Action';
-			
+
 			unset($explode[0], $explode[1]);
 
 			$this->params = array_values($explode);
@@ -138,23 +138,23 @@ class Request
 
 		return $post[$name];
 	}
-        
+
         /**
 	 * Obtém os dados da superglobal $_SERVER
 	 * @param  string $name Nome do parâmetro
 	 * @return null         Retorna o array $_SERVER geral ou em um índice específico
 	 */
-        
+
         public function server($name = null)
         {
             $server = $this->filter($_SERVER, INPUT_SERVER, $this->custom_filters);
-            
+
             if(!$name)
                 return $server;
-            
+
             if(!isset($server[$name]))
                 return NULL;
-            
+
             return $server[$name];
         }
 
@@ -209,4 +209,19 @@ class Request
 	{
 		return $this->getMethod('HEAD');
 	}
+
+        /*
+         * Verifica se os inputs no método requisitado estão no formato correto conforme o array informado $custom_filters
+         *
+         * @return boolean Inputs estão corretos ou não
+         */
+        public function isValid()
+        {
+            $method = $this->getMethod();
+
+            if(!array_search(FALSE, $this->$method()))
+                return TRUE;
+            else
+                return FALSE;
+        }
 }
