@@ -15,7 +15,7 @@ class View
 	 * @var object
 	 */
 	private $configs;
-	
+
 	/**
 	 * Injeção do Http Request
 	 * @var object
@@ -82,7 +82,7 @@ class View
 				->setHeader($view_settings->header)
 				->setFile($view_settings->file)
 				->setFooter($view_settings->footer)
-				->setTitle($view_settings->title);	
+				->setTitle($view_settings->title);
 	}
 
 	/**
@@ -176,11 +176,11 @@ class View
 	{
 		if (is_array($assets)) {
 			$this->assets[$type] = array_merge($this->assets[$type], $assets);
-		} 
+		}
 		else {
 			array_push($this->assets[$type], $assets);
 		}
-		 
+
 		return $this;
 	}
 
@@ -197,14 +197,14 @@ class View
 
 		switch ($type) {
 			case 'css':
-				$tag = '<link type="text/css" rel="stylesheet" href="%s">'."\n\r";
+				$tag = '<link type="text/css" rel="stylesheet" href="'.CSS.'%s">'."\n\r";
 				break;
 
 			case 'js':
-				$tag = '<script type="text/javascript" src="%s"></script>'."\n\r";
+				$tag = '<script type="text/javascript" src="'.JS.'%s"></script>'."\n\r";
 				break;
 		}
-		
+
 		if (count($custom_assets) > 0)
 			foreach ($custom_assets as $file)
 				$add_assets .= sprintf($tag,$file);
@@ -224,7 +224,7 @@ class View
 		);
 
 		$data = array_merge($default_data, $this->vars);
-		
+
 		//Extract que transforma os parâmetros em variáveis disponíveis para a VIEW
 		extract($data, EXTR_PREFIX_ALL, 'view');
 
