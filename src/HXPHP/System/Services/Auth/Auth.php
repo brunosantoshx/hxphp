@@ -67,8 +67,9 @@ class Auth
 	 * Autentica o usuário
 	 * @param  integer $user_id  ID do usuário
 	 * @param  string $username  Nome de usuário
+         * @param string $user_role Role do usuário
 	 */
-	public function login($user_id, $username)
+	public function login($user_id, $username, $user_role = null)
 	{
 		$user_id = intval(preg_replace("/[^0-9]+/", "", $user_id));
 		$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username);
@@ -76,6 +77,7 @@ class Auth
 
 		$this->storage->set('user_id', $user_id);
 		$this->storage->set('username', $username);
+                $this->storage->set('user_role', $user_role);
 		$this->storage->set($this->subfolder . '_login_string', $login_string);
 
 		if ($this->redirect)
@@ -112,6 +114,21 @@ class Auth
 				$this->logout();
 	}
 
+        /**
+         * Valida a autenticação e redireciona mediante o estado do usuário
+         * @param array $roles Array com roles são permitidas o acesso a esta página
+         */
+        public function roleCheck($roles = [])
+        {
+            if($this->loginCheck())
+            {
+                if(!in_array($this->getUserRole(), $roles))
+                    $this->redirectCheck(true);
+            }
+            else
+                $this->response->redirectTo($this->url_redirect_after_logout);
+        }
+
 	/**
 	 * Verifica se o usuário está logado
 	 * @return boolean Status da autenticação
@@ -141,4 +158,13 @@ class Auth
 	{
 		return $this->storage->get('user_id');
 	}
+
+        /**
+         * Retorna o role do usuário autenticado
+         * @return string Role do usuário
+         */
+        public function getUserRole()
+        {
+            return $this->storage->get('user_role');
+        }
 }
