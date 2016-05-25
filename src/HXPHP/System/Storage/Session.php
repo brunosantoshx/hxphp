@@ -16,9 +16,14 @@ class Session implements StorageInterface
 	 */
 	public function set($name, $value)
 	{
-		$_SESSION[self::PREFIX][$name] = $value;
+                if(is_array($name))
+                    foreach ($name as $session => $value)
+                        $_SESSION[self::PREFIX][$session] = $value;
 
-		return $this;
+                else
+                    $_SESSION[self::PREFIX][$name] = $value;
+
+                return $this;
 	}
 
 	/**
@@ -50,7 +55,17 @@ class Session implements StorageInterface
 	 */
 	public function clear($name)
 	{
-		if ($this->exists($name))
-			unset($_SESSION[self::PREFIX][$name]);
+                if(is_array($name))
+                {
+                    foreach ($name as $session)
+                    {
+                        if ($this->exists($session))
+                            unset($_SESSION[self::PREFIX][$session]);
+                    }
+                }
+
+                else
+                    if ($this->exists($name))
+                        unset($_SESSION[self::PREFIX][$name]);
 	}
 }

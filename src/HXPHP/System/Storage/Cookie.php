@@ -15,7 +15,11 @@ class Cookie implements StorageInterface
     {
         $cookieParams = session_get_cookie_params();
 
-        setcookie($name, $value, time() + $time, $cookieParams['path'], $cookieParams['domain'] ,false, true);
+        if(is_array($name))
+            foreach ($name as $cookie => $value)
+                setcookie($cookie, $value, time() + $time, $cookieParams['path'], $cookieParams['domain'] ,false, true);
+        else
+            setcookie($name, $value, time() + $time, $cookieParams['path'], $cookieParams['domain'] ,false, true);
 
         return $this;
     }
