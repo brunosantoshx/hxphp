@@ -11,15 +11,11 @@ class Cookie implements StorageInterface
      * @param string $value Conteúdo do cookie
      * @param timestamp $time Tempo de duração do cookie
      */
-    public function set($name, $value = null, $time = 31556926)
+    public function set($name, $value, $time = 31556926)
     {
         $cookieParams = session_get_cookie_params();
 
-        if(is_array($name))
-            foreach ($name as $cookie => $value)
-                setcookie($cookie, $value, time() + $time, $cookieParams['path'], $cookieParams['domain'] ,FALSE, TRUE);
-        else
-            setcookie($name, $value, time() + $time, $cookieParams['path'], $cookieParams['domain'] ,FALSE, TRUE);
+        setcookie($name, $value, time() + $time, $cookieParams['path'], $cookieParams['domain'] ,false, true);
 
         return $this;
     }
@@ -31,19 +27,8 @@ class Cookie implements StorageInterface
      */
     public function get($name)
     {
-        if(is_array($name))
-        {
-            $cookies = [];
-
-            foreach ($name as $cookie)
-                if ($this->exists($cookie))
-                    $cookies[] = $_COOKIE[$cookie];
-
-            return $cookies;
-        }
-        else
-            if ($this->exists($name))
-                return $_COOKIE[$name];
+        if ($this->exists($name))
+            return $_COOKIE[$name];
 
         return null;
     }
@@ -55,17 +40,7 @@ class Cookie implements StorageInterface
      */
     public function exists($name)
     {
-        if(is_array($name))
-        {
-            $cookies = [];
-
-            foreach ($name as $cookie)
-                $cookies[] = isset($_COOKIE[$cookie]);
-
-            return $cookies;
-        }
-        else
-            return isset($_COOKIE[$name]);
+        return isset($_COOKIE[$name]);
     }
 
     /**
@@ -74,14 +49,7 @@ class Cookie implements StorageInterface
      */
     public function clear($name)
     {
-        if(is_array($name))
-        {
-            foreach ($name as $cookie)
-                if ($this->exists($cookie))
-                    $this->set($cookie, null, -1);
-        }
-        else
-            if ($this->exists($name))
-                return $this->set($name, null, -1);
+        if ($this->exists($name))
+            return $this->set($name, NULL, -1);
     }
 }
