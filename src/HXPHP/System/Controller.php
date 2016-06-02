@@ -120,10 +120,10 @@ class Controller
 	 */
 	public function __get($param)
 	{
-		if ($this->view->$param)
+		if (isset($this->view->$param))
 			return $this->view->$param;
 
-		elseif ($this->$param)
+		elseif (isset($this->$param))
 			return $this->$param;
 
 		else

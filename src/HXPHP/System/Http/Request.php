@@ -40,7 +40,7 @@ class Request
 		if ($baseURI && $controller_directory) {
 			$explode = array_values(array_filter(explode('/', $_SERVER['REQUEST_URI'])));
 
-			if (($explode[0]) && $explode[0] == str_replace('/', '', $baseURI)) {
+			if (isset($explode[0]) && $explode[0] == str_replace('/', '', $baseURI)) {
 				unset($explode[0]);
 				$explode = array_values($explode);
 			}
@@ -52,10 +52,10 @@ class Request
 			if (file_exists($controller_directory . $explode[0])) {
 				$this->subfolder = $explode[0] . DS;
 
-				if (($explode[1]))
+				if (isset($explode[1]))
 					$this->controller = Tools::filteredName($explode[1]).'Controller';
 
-				if ($explode[2]) {
+				if (isset($explode[2])) {
 					$this->action = lcfirst(Tools::filteredName($explode[2])).'Action';
 
 					unset($explode[2]);
@@ -160,7 +160,7 @@ class Request
         if(!$name)
             return $server;
 
-        if(!($server[$name]))
+        if(!isset($server[$name]))
             return NULL;
 
         return $server[$name];
