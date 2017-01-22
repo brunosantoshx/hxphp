@@ -2,13 +2,17 @@
 
 namespace HXPHP\System\Configs;
 
+use HXPHP\System\Http\Request as Request;
+
 class DefineEnvironment
 {
 	private $currentEnviroment;
 
 	public function __construct()
 	{
-		$server_name = $_SERVER['SERVER_NAME'];
+		$request = new Request;
+		$server_name = $request->server('SERVER_NAME');
+        
         $development = new Environments\EnvironmentDevelopment;
 		$production = new Environments\EnvironmentProduction;
 
