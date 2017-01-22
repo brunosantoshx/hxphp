@@ -9,6 +9,7 @@ class DefineEnvironment
 	public function __construct()
 	{
 		$server_name = $_SERVER['SERVER_NAME'];
+        $development = new Environments\EnvironmentDevelopment;
 		$production = new Environments\EnvironmentProduction;
 
 		if (in_array($server_name, $development->servers))
