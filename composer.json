@@ -17,5 +17,9 @@
         "psr-0": {
             "": ["src/"]
         }
+    },
+    "config": {
+        "discard-changes": "stash",    
+        "preferred-install": "dist"    
     }
 }
