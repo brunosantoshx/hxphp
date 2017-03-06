@@ -11,7 +11,13 @@ class Response
 	 */
 	public function redirectTo($url)
 	{
-		header("location: $url");
+		$this->header('location: '.$url);
+        
 		exit();
 	}
+    
+    public function header($header)
+    {
+        header($header);
+    }
 }
