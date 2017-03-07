@@ -4,43 +4,42 @@ namespace HXPHP\System\Helpers\Alert;
 
 class Template
 {
-	private $template_path = null;
-	private $template_file = null;
+    private $template_path = null;
+    private $template_file = null;
 
-	public function __construct()
-	{
-		$this->setTemplatePath(TEMPLATES_PATH . 'Helpers' . DS . 'Alert' . DS)
-				->setTemplateFile('alert');
-	}
+    public function __construct()
+    {
+        $this->setTemplatePath(TEMPLATES_PATH . 'Helpers' . DS . 'Alert' . DS)->setTemplateFile('alert');
+    }
 
-	public function setTemplatePath($path)
-	{
-		$this->template_path = $path;
+    public function setTemplatePath($path): Template
+    {
+        $this->template_path = $path;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	public function setTemplateFile($file)
-	{
-		$this->template_file = $file;
+    public function setTemplateFile(string $file): Template
+    {
+        $this->template_file = $file;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * Método resposnável pela obtenção do conteúdo do template
-	 * @return html
-	 */
-	public function get($list = false)
-	{
-		if ($list)
-			$this->setTemplateFile('alert-list');
+    /**
+     * Método resposnável pela obtenção do conteúdo do template
+     * @return html
+     */
+    public function get(bool $list = false)
+    {
+        if($list)
+            $this->setTemplateFile('alert-list');
 
-		$template = $this->template_path . $this->template_file . '.html';
+        $template = $this->template_path . $this->template_file . '.html';
 
-		if (!file_exists($template))
-			throw new \Exception("O template para a mensagem nao foi localizado: $template", 1);
+        if(!file_exists($template))
+            throw new \Exception("O template para a mensagem nao foi localizado: $template", 1);
 
-		return file_get_contents($template);
-	}
+        return file_get_contents($template);
+    }
 }

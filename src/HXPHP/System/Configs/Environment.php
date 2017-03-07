@@ -6,29 +6,30 @@ use HXPHP\System\Tools;
 
 class Environment
 {
-	public $defaultEnvironment;
+    public $defaultEnvironment;
 
-	public function __construct()
-	{
-		$define = new DefineEnvironment;
-		$this->defaultEnvironment = $define->getDefault();
-	}
+    public function __construct()
+    {
+        $define                   = new DefineEnvironment;
+        $this->defaultEnvironment = $define->getDefault();
+    }
 
-	public function add($environment = null)
-	{
-		if (!$environment)
-			$environment = $this->defaultEnvironment;
+    public function add(string $environment = null)
+    {
+        if(!$environment)
+            $environment = $this->defaultEnvironment;
 
-		$name = strtolower(Tools::filteredName($environment));
-		$object = 'HXPHP\System\Configs\Environments\Environment' . ucfirst(Tools::filteredName($environment));
+        $name   = strtolower(Tools::filteredName($environment));
+        $object = 'HXPHP\System\Configs\Environments\Environment' . ucfirst(Tools::filteredName($environment));
 
-		if (!class_exists($object))
-			throw new \Exception('O ambiente informado nao esta definido nas configuracoes do sistema.');
+        if(!class_exists($object))
+            throw new \Exception('O ambiente informado nao esta definido nas configuracoes do sistema.');
 
-		else {
-			$this->$name = new $object();
+        else
+        {
+            $this->$name = new $object();
 
-			return $this->$name;
-		}
-	}
+            return $this->$name;
+        }
+    }
 }

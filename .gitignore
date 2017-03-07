@@ -1,1 +1,4 @@
+.editorconfig
 /vendor/
+/nbproject/
+/public/bower_components/

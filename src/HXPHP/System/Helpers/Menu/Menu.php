@@ -2,99 +2,98 @@
 
 namespace HXPHP\System\Helpers\Menu;
 
+use HXPHP\System\{
+    Http\Request as Request,
+    Configs\Config as Config
+};
+
 class Menu
 {
-	/**
-	 * Dependências
-	 * @var object
-	 */
-	private $render = null;
+    /**
+     * Dependências
+     * @var object
+     */
+    private $render = null;
 
-	/**
-	 * Dados do módulo de configuração
-	 * @var array
-	 */
-	private $configs = [];
+    /**
+     * Dados do módulo de configuração
+     * @var array
+     */
+    private $configs = [];
 
-	/**
-	 * URL ATUAL
-	 * @var string
-	 */
-	private $current_URL = null;
+    /**
+     * URL ATUAL
+     * @var string
+     */
+    private $current_URL = null;
 
-	/**
-	 * Nível de acesso
-	 * @var string
-	 */
-	private $role;
+    /**
+     * Nível de acesso
+     * @var string
+     */
+    private $role;
 
+    /**
+     * @param Request $request Objeto Request
+     * @param Config  $configs Configurações do framework
+     * @param string  $role    Nível de acesso
+     */
+    public function __construct(Request $request, Config $configs, string $role = 'default')
+    {
+        $this->role = $role;
 
-	/**
-	 * @param \HXPHP\System\Http\Request   $request Objeto Request
-	 * @param \HXPHP\System\Configs\Config $configs Configurações do framework
-	 * @param string                       $role    Nível de acesso
-	 */
-	public function __construct(
-		\HXPHP\System\Http\Request $request,
-		\HXPHP\System\Configs\Config $configs,
-		$role = 'default'
-	)
-	{
+        $this->setConfigs($configs)
+            ->setCurrentURL($request, $configs);
 
-		$this->role = $role;
+        $realLink = new RealLink($configs->site->url, $configs->baseURI);
+        $checkActive = new CheckActive($realLink, $this->current_URL);
 
-		$this->setConfigs($configs)
-				->setCurrentURL($request, $configs);
+        $this->render = new Render(
+            $realLink,
+            $checkActive,
+            $this->configs->menu->itens,
+            $this->configs->menu->configs
+        );
+    }
 
-		$realLink = new RealLink($configs->site->url, $configs->baseURI);
-		$checkActive = new CheckActive($realLink, $this->current_URL);
+    /**
+     * Dados do módulo de configuração do MenuHelper
+     * @param array $configs
+     */
+    private function setConfigs(array $configs): Menu
+    {
+        $this->configs = $configs;
 
-		$this->render = new Render(
-			$realLink,
-			$checkActive,
-			$this->configs->menu->itens,
-			$this->configs->menu->configs
-		);
-	}
+        return $this;
+    }
 
-	/**
-	 * Dados do módulo de configuração do MenuHelper
-	 * @param array $configs
-	 */
-	private function setConfigs($configs)
-	{
-		$this->configs = $configs;
+    /**
+     * Define a URL atual
+     */
+    private function setCurrentURL(string $request, array $configs): Menu
+    {
+        $parseURL = parse_url($request->server('REQUEST_URI'));
 
-		return $this;
-	}
+        $this->current_URL = $configs->site->url . $parseURL['path'];
 
-	/**
-	 * Define a URL atual
-	 */
-	private function setCurrentURL($request, $configs)
-	{
-		$parseURL = parse_url($request->server('REQUEST_URI'));
+        return $this;
+    }
 
-		$this->current_URL = $configs->site->url . $parseURL['path'];
+    /**
+     * Exibe o HTML com o menu renderizado
+     * @return string
+     */
+    public function getMenu(): string
+    {
+        return $this->render->getHTML($this->role);
+    }
 
-		return $this;
-	}
-
-	/**
-	 * Exibe o HTML com o menu renderizado
-	 * @return string
-	 */
-	public function getMenu()
-	{
-		return $this->render->getHTML($this->role);
-	}
-
-	/**
-	 * Exibe o HTML com o menu renderizado
-	 * @return string
-	 */
-	public function __toString()
-	{
-		return $this->getMenu();
-	}
+    /**
+     * Exibe o HTML com o menu renderizado
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getMenu();
+    }
 }
