@@ -21,6 +21,7 @@ class SimplecURL
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 		return curl_exec($ch);
