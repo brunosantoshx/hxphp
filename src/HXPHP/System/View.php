@@ -321,4 +321,41 @@ class View
 
 		echo $this->configs->baseURI . $path . $URL;
 	}
+
+        /**
+            * Método mágico __call para auxiliar na inserção das meta-tags
+            *
+            * @param string $name nome da meta tag
+            * @param mist $args conteúdo da meta tag separados por vírgula
+            *
+            * @return $this
+        */
+        public function __call($name, $args)
+        {
+            $name = preg_split('/(?=[A-Z])/',$name);
+
+            $metaTag = $name[0];
+            $metaName = strtolower($name[1]);
+            $metaContent = implode(', ', $args);
+
+            switch (true) {
+                case $metaTag === 'meta':
+                    echo "<meta name='$metaName' content='$metaContent'>";
+                break;
+
+                case $metaTag === 'property':
+                    echo "<meta property='og:$metaName' content='$metaContent'>";
+                break;
+
+                case $metaTag === 'twitter':
+                    echo "<meta name='twitter:$metaName' content='$metaContent'>";
+                break;
+
+                default:
+                    throw new \Exception('Para inserção de meta tags HTML, chame um método começando com set. Ex: metaDescription()');
+                break;
+            }
+
+           return $this;
+        }
 }
