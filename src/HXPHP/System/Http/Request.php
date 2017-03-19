@@ -57,16 +57,34 @@ class Request
 			}
 			
 			if (file_exists($controller_directory . $explode[0])) {
-				$this->subfolder = $explode[0];
-				
-				if (isset($explode[1]))
+				//ADICIONADA POSSIBILIDADE DE ADICIONAR MAIS DE UM SUBFOLDER
+				if(file_exists($controller_directory . $explode[0] ."\\". $explode[1])){
+					$this->subfolder = $explode[0] ."\\". $explode[1];
+					$this->subfolder;
+
+					if (isset($explode[2]))
+					$this->controller = Tools::filteredName($explode[2]).'Controller';
+	
+					if (isset($explode[3])) {
+						$this->action = lcfirst(Tools::filteredName($explode[3])).'Action';
+	
+						unset($explode[3]);
+					}
+
+				}else{
+
+					$this->subfolder = $explode[0];
+					if (isset($explode[1]))
 					$this->controller = Tools::filteredName($explode[1]).'Controller';
+	
+					if (isset($explode[2])) {
+						$this->action = lcfirst(Tools::filteredName($explode[2])).'Action';
+	
+						unset($explode[2]);
+					}
 
-				if (isset($explode[2])) {
-					$this->action = lcfirst(Tools::filteredName($explode[2])).'Action';
-
-					unset($explode[2]);
 				}
+				
 			}
 			elseif (count($explode) == 1) {
 				$this->controller = Tools::filteredName($explode[0]).'Controller';
