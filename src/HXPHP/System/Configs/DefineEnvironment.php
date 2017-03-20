@@ -31,3 +31,12 @@ class DefineEnvironment
 		return $this->currentEnviroment;
 	}
 }
+
+trait CurrentEnviroment
+{
+    public function getCurrentEnvironment()
+    {
+        $default = new DefineEnvironment;
+        return $default->getDefault();
+    }
+}
