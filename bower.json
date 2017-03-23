@@ -1,22 +1,22 @@
 {
-  "name": "hxphp",
-  "description": "",
-  "main": "",
-  "authors": [
-    "Bruno C. Santos <bruno@plug.ag>"
-  ],
-  "license": "MIT",
-  "homepage": "http://www.hxphp.com.br",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "font-awesome": "^4.6.1",
-    "bootstrap": "^3.3.6",
-    "jquery": "^2.2.3"
-  }
+    "name": "hxphp",
+    "description": "",
+    "main": "",
+    "authors": [
+        "Bruno C. Santos <bruno@plug.ag>"
+    ],
+    "license": "MIT",
+    "homepage": "http://www.hxphp.com.br",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "font-awesome": "^4.6.1",
+        "bootstrap": "^3.3.6",
+        "jquery": "^2.2.3"
+    }
 }

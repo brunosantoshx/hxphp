@@ -2,23 +2,23 @@ Options +FollowSymLinks
 Options -Indexes
 
 <IfModule mod_rewrite.c>
-	RewriteEngine On
-	RewriteBase /hxphp/
-	RewriteRule ^index\.php$ - [L]
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule . /hxphp/index.php [L]
+    RewriteEngine On
+    RewriteBase /hxphp/
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /hxphp/index.php [L]
 </IfModule>
 
 <Files ~ "^\.(htaccess|htpasswd)$">
-  deny from all
+    deny from all
 </Files>
 
 <IfModule mod_deflate.c>
-  <FilesMatch "\.(js|css|jpg|png|gif|ico|php|html|htm)$">
-    <ifModule mod_filter.c>
-      SetOutputFilter DEFLATE
-      AddOutputFilterByType DEFLATE text/css text/javascript application/x-javascript text/html text/plain text/xml image/x-icon
-    </IfModule>
-  </FilesMatch>
+    <FilesMatch "\.(js|css|jpg|png|gif|ico|php|html|htm)$">
+        <ifModule mod_filter.c>
+            SetOutputFilter DEFLATE
+            AddOutputFilterByType DEFLATE text/css text/javascript application/x-javascript text/html text/plain text/xml image/x-icon
+        </IfModule>
+    </FilesMatch>
 </IfModule>

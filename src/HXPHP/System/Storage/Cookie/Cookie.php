@@ -1,10 +1,8 @@
 <?php
-
 namespace HXPHP\System\Storage\Cookie;
 
 class Cookie implements \HXPHP\System\Storage\StorageInterface
 {
-
     /**
      * Cria um cookie
      * @param string $name  Nome do cookie
@@ -15,7 +13,7 @@ class Cookie implements \HXPHP\System\Storage\StorageInterface
     {
         $cookieParams = session_get_cookie_params();
 
-        setcookie($name, $value, time() + $time, $cookieParams['path'], $cookieParams['domain'] ,false, true);
+        setcookie($name, $value, time() + $time, $cookieParams['path'], $cookieParams['domain'], false, true);
 
         return $this;
     }
