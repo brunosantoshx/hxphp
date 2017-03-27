@@ -24,9 +24,17 @@ class DefineEnvironment
         if (is_object($env->add($environment)))
             $this->currentEnviroment = $environment;
     }
-
     public function getDefault()
     {
         return $this->currentEnviroment;
+    }
+}
+
+trait CurrentEnviroment
+{
+    public function getCurrentEnvironment()
+    {
+        $default = new DefineEnvironment;
+        return $default->getDefault();
     }
 }
