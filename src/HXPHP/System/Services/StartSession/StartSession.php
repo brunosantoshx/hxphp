@@ -1,16 +1,15 @@
 <?php
-
 namespace HXPHP\System\Services\StartSession;
 
 class StartSession
 {
-	/**
-	 * Security Session Start
-	 * @param  boolean $regenerate Regerar sessão após start
-	 * @return void
-	 */
-	static function sec_session_start ($regenerate = false)
-	{
+    /**
+     * Security Session Start
+     * @param  boolean $regenerate Regerar sessão após start
+     * @return void
+     */
+    static function sec_session_start($regenerate = false)
+    {
         ini_set('session.use_only_cookies', 1);
 
         $cookieParams = session_get_cookie_params();
@@ -21,7 +20,6 @@ class StartSession
         session_start();
 
         if ($regenerate)
-                session_regenerate_id(true);
-
-	}
+            session_regenerate_id(true);
+    }
 }

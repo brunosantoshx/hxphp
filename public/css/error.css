@@ -1,10 +1,10 @@
 body{
-	background: #FFAEAD;
-	color: #fff;
+    background: #FFAEAD;
+    color: #fff;
 }
 .panel.panel-custom{
-	border-color: #A94442;
+    border-color: #A94442;
 }
 .panel.panel-custom .panel-body{
-	background: #A94442;
+    background: #A94442;
 }
