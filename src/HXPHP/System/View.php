@@ -1,10 +1,8 @@
 <?php
-
 namespace HXPHP\System;
 
 class View
 {
-
     /**
      * Título da página
      * @var string
@@ -77,10 +75,8 @@ class View
             'title' => $this->configs->title
         ];
 
-        foreach ($default_values as $setting => $value)
-        {
-            if (!$this->$setting)
-            {
+        foreach ($default_values as $setting => $value) {
+            if (!$this->$setting) {
                 $view_settings->$setting = $value;
                 continue;
             }
@@ -216,8 +212,7 @@ class View
     {
         $add_assets = '';
 
-        switch ($type)
-        {
+        switch ($type) {
             case 'css':
                 $tag = '<link type="text/css" rel="stylesheet" href="%s">' . "\n\r";
                 break;
@@ -274,8 +269,7 @@ class View
             throw new \Exception("Erro fatal: A view <'$view'> não foi encontrada. Por favor, crie a view e tente novamente.", 1);
 
         //Mecanismo de template
-        if (!$this->template)
-        {
+        if (!$this->template) {
             //Inclusão da view
             require_once($view);
             exit();
