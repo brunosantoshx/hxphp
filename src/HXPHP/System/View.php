@@ -125,7 +125,7 @@ class View
      * Define a pasta da view
      * @param string  $path  Caminho da View
      */
-    public function setPath(string $path, $overwrite = false)
+    public function setPath(string $path, bool $overwrite = false)
     {
         $this->path = $overwrite === false ? $this->subfolder . $path : $path;
         return $this;
@@ -145,7 +145,7 @@ class View
      * Define o cabeçalho da view
      * @param string  $header  Cabeçalho da View
      */
-    public function setHeader(string $header, $overwrite = false)
+    public function setHeader(string $header, bool $overwrite = false)
     {
         $this->header = $overwrite === false ? $this->subfolder . $header : $header;
         return $this;
@@ -165,7 +165,7 @@ class View
      * Define o rodapé da view
      * @param string  $footer  Rodapé da View
      */
-    public function setFooter(string $footer, $overwrite = false)
+    public function setFooter(string $footer, bool $overwrite = false)
     {
         $this->footer = $overwrite === false ? $this->subfolder . $footer : $footer;
         return $this;
@@ -186,7 +186,7 @@ class View
      * @param string  $name  Nome do índice
      * @param string  $value  Valor
      */
-    public function setVar(string $name, $value)
+    public function setVar(string $name, string $value)
     {
         $this->vars[$name] = $value;
         return $this;
@@ -324,5 +324,4 @@ class View
 
         echo $this->configs->baseURI . $path . $URL;
     }
-
 }
