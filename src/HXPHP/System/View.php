@@ -1,8 +1,10 @@
 <?php
+
 namespace HXPHP\System;
 
 class View
 {
+
     /**
      * Título da página
      * @var string
@@ -75,8 +77,10 @@ class View
             'title' => $this->configs->title
         ];
 
-        foreach ($default_values as $setting => $value) {
-            if (!$this->$setting) {
+        foreach ($default_values as $setting => $value)
+        {
+            if (!$this->$setting)
+            {
                 $view_settings->$setting = $value;
                 continue;
             }
@@ -212,13 +216,14 @@ class View
     {
         $add_assets = '';
 
-        switch ($type) {
+        switch ($type)
+        {
             case 'css':
-                $tag = '<link type="text/css" rel="stylesheet" href="'.BASE.'%s">' . "\n\r";
+                $tag = '<link type="text/css" rel="stylesheet" href="%s">' . "\n\r";
                 break;
 
             case 'js':
-                $tag = '<script type="text/javascript" src="'.BASE.'%s"></script>' . "\n\r";
+                $tag = '<script type="text/javascript" src="%s"></script>' . "\n\r";
                 break;
         }
 
@@ -245,6 +250,10 @@ class View
         //Extract que transforma os parâmetros em variáveis disponíveis para a VIEW
         extract($data, EXTR_PREFIX_ALL, 'view');
 
+        //Inclusão de ASSETS
+        $add_css = $this->assets('css', $this->assets['css']);
+        $add_js = $this->assets('js', $this->assets['js']);
+
         //Variáveis
         $baseURI = $this->configs->baseURI;
         $viewsDir = $this->configs->views->directory;
@@ -258,10 +267,6 @@ class View
         define('CSS', $baseURI . 'public/css/');
         define('JS', $baseURI . 'public/js/');
 
-        //Inclusão de ASSETS
-        $add_css = $this->assets('css', $this->assets['css']);
-        $add_js = $this->assets('js', $this->assets['js']);
-
         //Verifica a existência da VIEW
         $view = $viewsDir . $this->path . DS . $this->file . $viewsExt;
 
@@ -269,7 +274,8 @@ class View
             throw new \Exception("Erro fatal: A view <'$view'> não foi encontrada. Por favor, crie a view e tente novamente.", 1);
 
         //Mecanismo de template
-        if (!$this->template) {
+        if (!$this->template)
+        {
             //Inclusão da view
             require_once($view);
             exit();
@@ -318,4 +324,5 @@ class View
 
         echo $this->configs->baseURI . $path . $URL;
     }
+
 }
