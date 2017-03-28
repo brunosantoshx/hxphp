@@ -214,11 +214,11 @@ class View
 
         switch ($type) {
             case 'css':
-                $tag = '<link type="text/css" rel="stylesheet" href="%s">' . "\n\r";
+                $tag = '<link type="text/css" rel="stylesheet" href="'.BASE.'%s">' . "\n\r";
                 break;
 
             case 'js':
-                $tag = '<script type="text/javascript" src="%s"></script>' . "\n\r";
+                $tag = '<script type="text/javascript" src="'.BASE.'%s"></script>' . "\n\r";
                 break;
         }
 
@@ -244,12 +244,7 @@ class View
 
         //Extract que transforma os parâmetros em variáveis disponíveis para a VIEW
         extract($data, EXTR_PREFIX_ALL, 'view');
-
-        //Inclusão de ASSETS
-
-        $add_css = $this->assets('css', $this->assets['css']);
-        $add_js = $this->assets('js', $this->assets['js']);
-
+      
         //Variáveis
         $baseURI = $this->configs->baseURI;
         $viewsDir = $this->configs->views->directory;
@@ -262,6 +257,10 @@ class View
         define('IMG', $baseURI . 'public/img/');
         define('CSS', $baseURI . 'public/css/');
         define('JS', $baseURI . 'public/js/');
+        
+        //Inclusão de ASSETS
+        $add_css = $this->assets('css', $this->assets['css']);
+        $add_js = $this->assets('js', $this->assets['js']);
 
         //Verifica a existência da VIEW
         $view = $viewsDir . $this->path . DS . $this->file . $viewsExt;
