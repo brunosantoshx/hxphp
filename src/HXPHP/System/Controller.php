@@ -91,17 +91,29 @@ class Controller
          */
         $explode = explode('\\', $object);
         $object = $object . '\\' . end($explode);
-        $object = 'HXPHP\System\\' . $object;
+        $system = 'HXPHP\System\\' . $object;
+        $app = 'App\Modules\\' . $object;
 
-        if (class_exists($object)) {
+        if (class_exists($system)) {
             $name = end($explode);
             $name = strtolower(Tools::filteredName($name));
 
             if ($params) {
-                $ref = new \ReflectionClass($object);
+                $ref = new \ReflectionClass($system);
                 $this->view->$name = $ref->newInstanceArgs($params);
             } else
-                $this->view->$name = new $object();
+                $this->view->$name = new $system();
+
+            return $this->view->$name;
+        } elseif (class_exists($app)) {
+            $name = end($explode);
+            $name = strtolower(Tools::filteredName($name));
+
+            if ($params) {
+                $ref = new \ReflectionClass($app);
+                $this->view->$name = $ref->newInstanceArgs($params);
+            } else
+                $this->view->$name = new $app();
 
             return $this->view->$name;
         }
