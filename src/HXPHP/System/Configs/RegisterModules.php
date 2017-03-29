@@ -1,4 +1,5 @@
 <?php
+
 namespace HXPHP\System\Configs;
 
 class RegisterModules
@@ -7,12 +8,21 @@ class RegisterModules
 
     public function __construct()
     {
-        $this->modules = [
+        $modules = [
             'database',
             'mail',
             'menu',
             'auth'
         ];
+
+        $appModules = 'App\\Modules\\Register';
+
+        if(class_exists($appModules)){
+            $register = new $appModules();
+            $modules = array_merge($modules,$register->modules);
+        }
+
+        $this->modules = $modules;
 
         return $this;
     }
