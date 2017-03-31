@@ -303,7 +303,7 @@ class View
         if (!file_exists($viewFile))
             throw new \Exception("Erro fatal: A view <'$viewFile'> não foi encontrada. Por favor, crie a view e tente novamente.", 1);
 
-        require_once($viewFile);
+        require($viewFile);
     }
 
     public function getRelativeURL($URL, $controller = true)
