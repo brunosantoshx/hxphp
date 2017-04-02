@@ -38,7 +38,7 @@ class View
         'js' => []
     ];
 
-    public function setConfigs(Configs\Config $configs, $subfolder, $controller, $action)
+    public function setConfigs(Configs\Config $configs, string $subfolder, string $controller, string $action)
     {
         /**
          * Injeção das Configurações
@@ -97,7 +97,7 @@ class View
      * Define o diretório das views parciais
      * @param string  $partialsDir  Diretório
      */
-    public function setPartialsDir($partialsDir, $overwrite = false)
+    public function setPartialsDir(string $partialsDir, bool $overwrite = false)
     {
         $viewsDir = $this->configs->views->directory;
 
@@ -111,7 +111,7 @@ class View
      * Define o título da página
      * @param string  $title  Título da página
      */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
         return $this;
@@ -121,7 +121,7 @@ class View
      * Define a pasta da view
      * @param string  $path  Caminho da View
      */
-    public function setPath($path, $overwrite = false)
+    public function setPath(string $path, $overwrite = false)
     {
         $this->path = $overwrite === false ? $this->subfolder . $path : $path;
         return $this;
@@ -131,7 +131,7 @@ class View
      * Define se o arquivo é miolo (Inclusão de Cabeçalho e Rodapé) ou único
      * @param bool  $template  Template ON/OFF
      */
-    public function setTemplate($template)
+    public function setTemplate(string $template)
     {
         $this->template = $template;
         return $this;
@@ -141,7 +141,7 @@ class View
      * Define o cabeçalho da view
      * @param string  $header  Cabeçalho da View
      */
-    public function setHeader($header, $overwrite = false)
+    public function setHeader(string $header, $overwrite = false)
     {
         $this->header = $overwrite === false ? $this->subfolder . $header : $header;
         return $this;
@@ -151,7 +151,7 @@ class View
      * Define o arquivo da view
      * @param string  $file  Arquivo da View
      */
-    public function setFile($file)
+    public function setFile(string $file)
     {
         $this->file = $file;
         return $this;
@@ -161,7 +161,7 @@ class View
      * Define o rodapé da view
      * @param string  $footer  Rodapé da View
      */
-    public function setFooter($footer, $overwrite = false)
+    public function setFooter(string $footer, $overwrite = false)
     {
         $this->footer = $overwrite === false ? $this->subfolder . $footer : $footer;
         return $this;
@@ -182,7 +182,7 @@ class View
      * @param string  $name  Nome do índice
      * @param string  $value  Valor
      */
-    public function setVar($name, $value)
+    public function setVar(string $name, $value)
     {
         $this->vars[$name] = $value;
         return $this;
@@ -193,7 +193,7 @@ class View
      * @param string  $type  Tipo do arquivo
      * @param string|array  $assets  Arquivo Único | Array com os arquivos
      */
-    public function setAssets($type, $assets)
+    public function setAssets(string $type, $assets)
     {
         (is_array($assets)) ?
                         $this->assets[$type] = array_merge($this->assets[$type], $assets) :
@@ -208,17 +208,17 @@ class View
      * @param  array  $custom_assets Links dos arquivos que serão incluídos
      * @return string                HTML formatado de acordo com o tipo de arquivo
      */
-    private function assets($type, array $custom_assets = [])
+    private function assets(string $type, array $custom_assets = [])
     {
         $add_assets = '';
 
         switch ($type) {
             case 'css':
-                $tag = '<link type="text/css" rel="stylesheet" href="%s">' . "\n\r";
+                $tag = '<link type="text/css" rel="stylesheet" href="'.BASE.'%s">' . "\n\r";
                 break;
 
             case 'js':
-                $tag = '<script type="text/javascript" src="%s"></script>' . "\n\r";
+                $tag = '<script type="text/javascript" src="'.BASE.'%s"></script>' . "\n\r";
                 break;
         }
 
@@ -245,11 +245,6 @@ class View
         //Extract que transforma os parâmetros em variáveis disponíveis para a VIEW
         extract($data, EXTR_PREFIX_ALL, 'view');
 
-        //Inclusão de ASSETS
-
-        $add_css = $this->assets('css', $this->assets['css']);
-        $add_js = $this->assets('js', $this->assets['js']);
-
         //Variáveis
         $baseURI = $this->configs->baseURI;
         $viewsDir = $this->configs->views->directory;
@@ -262,6 +257,10 @@ class View
         define('IMG', $baseURI . 'public/img/');
         define('CSS', $baseURI . 'public/css/');
         define('JS', $baseURI . 'public/js/');
+
+        //Inclusão de ASSETS
+        $add_css = $this->assets('css', $this->assets['css']);
+        $add_js = $this->assets('js', $this->assets['js']);
 
         //Verifica a existência da VIEW
         $view = $viewsDir . $this->path . DS . $this->file . $viewsExt;
@@ -291,7 +290,7 @@ class View
         exit();
     }
 
-    public function partial($view, array $params = [])
+    public function partial(string $view, array $params = [])
     {
         if (!empty($params))
             extract($params, EXTR_PREFIX_ALL, 'view');
@@ -306,14 +305,14 @@ class View
         require($viewFile);
     }
 
-    public function getRelativeURL($URL, $controller = true)
+    public function getRelativeURL(string $URL, bool $controller = true)
     {
         $path = $controller === true ? $this->path . DS : $this->subfolder;
 
         return $this->configs->baseURI . $path . $URL;
     }
 
-    public function printRelativeURL($URL, $controller = true)
+    public function printRelativeURL(string $URL, bool $controller = true)
     {
         $path = $controller === true ? $this->path . DS : $this->subfolder;
 
