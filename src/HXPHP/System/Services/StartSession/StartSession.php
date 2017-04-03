@@ -8,7 +8,7 @@ class StartSession
      * @param  boolean $regenerate Regerar sessão após start
      * @return void
      */
-    static function sec_session_start($regenerate = false)
+    static function sec_session_start(bool $regenerate = false)
     {
         ini_set('session.use_only_cookies', 1);
 
