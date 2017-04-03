@@ -14,7 +14,7 @@ class Session implements \HXPHP\System\Storage\StorageInterface
      * @param string $value Conteúdo da sessão
      * @param int $timeout  Tempo de expiração da sessão
      */
-    public function set($name, $value, $timeout = null)
+    public function set(string $name, string $value, int $timeout = null)
     {
         $_SESSION[self::PREFIX][$name] = $value;
 
@@ -31,7 +31,7 @@ class Session implements \HXPHP\System\Storage\StorageInterface
      * @param  string $name Nome da sessão
      * @return string       Conteúdo da sessão
      */
-    public function get($name)
+    public function get(string $name)
     {
         if ($this->exists($name)) {
             if (!$this->hasExpired($name))
@@ -48,7 +48,7 @@ class Session implements \HXPHP\System\Storage\StorageInterface
      * @param  string  $name Nome da sessão
      * @return boolean       Status do processo
      */
-    public function exists($name)
+    public function exists(string $name)
     {
         return isset($_SESSION[self::PREFIX][$name]);
     }
@@ -58,7 +58,7 @@ class Session implements \HXPHP\System\Storage\StorageInterface
      * @param string $name   Nome da sessão
      * @return boolean       Sessão expirada ou não
      */
-    public function hasExpired($name)
+    public function hasExpired(string $name)
     {
         if (!$this->exists($name . '_timeout'))
             return false;
@@ -75,7 +75,7 @@ class Session implements \HXPHP\System\Storage\StorageInterface
      * @param string $name   Nome da sessão
      * @return date          Quantidade de tempo restante para o timeout
      */
-    public function getTimeLeftOf($name)
+    public function getTimeLeftOf(string $name)
     {
         if ($this->hasExpired($name))
             return 0;
@@ -87,7 +87,7 @@ class Session implements \HXPHP\System\Storage\StorageInterface
      * Exclui uma sessão
      * @param  string $name Nome da sessão
      */
-    public function clear($name)
+    public function clear(string $name)
     {
         if ($this->exists($name))
             unset($_SESSION[self::PREFIX][$name]);

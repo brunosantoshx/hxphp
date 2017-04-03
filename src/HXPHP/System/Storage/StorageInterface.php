@@ -9,29 +9,26 @@ interface StorageInterface
      * @param string $name  Nome do indice para o valor
      * @param $this
      */
-    public function set($name, $value);
-
+    public function set(string $name, string $value);
     /**
      * Usar para resgatar um valor no storage
      *
      * @param  string $name Nome do indice que o valor foi armazenado
      * @return *
      */
-    public function get($name);
-
+    public function get(string $name);
     /**
      * Usar para verificar se um indice existe no storage
      *
      * @param  string $name
      * @return boolean
      */
-    public function exists($name);
-
+    public function exists(string $name);
     /**
      * Usar para apagar um indice do storage
      *
      * @param  string $name
      * @return boolean
      */
-    public function clear($name);
+    public function clear(string $name);
 }
