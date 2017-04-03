@@ -32,7 +32,7 @@ class Menu
         return $this->configs = array_merge($this->configs, $configs);
     }
 
-    public function setMenus(array $itens, $role = 'default')
+    public function setMenus(array $itens, string $role = 'default')
     {
         return $this->itens[$role] = $itens;
     }
