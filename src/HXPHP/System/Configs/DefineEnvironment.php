@@ -18,7 +18,7 @@ class DefineEnvironment
         return $this->currentEnviroment;
     }
 
-    public function setDefaultEnv($environment)
+    public function setDefaultEnv(string $environment)
     {
         $env = new Environment;
         if (is_object($env->add($environment)))

@@ -15,7 +15,7 @@ class Config
         $this->env->add();
     }
 
-    public function __get($param)
+    public function __get(string $param)
     {
         $current = $this->define->getDefault();
 
