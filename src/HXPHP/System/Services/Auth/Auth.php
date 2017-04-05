@@ -31,7 +31,7 @@ class Auth
     /**
      * Método construtor
      */
-    public function __construct($after_login, $after_logout, $redirect = false, $subfolder = 'default')
+    public function __construct(array $after_login, array $after_logout, bool $redirect = false, string $subfolder = 'default')
     {
         //Instância dos objetos injetados
         $this->request = new Http\Request;
@@ -57,7 +57,7 @@ class Auth
      * @param  string $username  Nome de usuário
      * @param string $user_role Role do usuário
      */
-    public function login($user_id, $username, $user_role = null)
+    public function login(int $user_id, string $username, string $user_role = null)
     {
         $user_id = intval(preg_replace("/[^0-9]+/", "", $user_id));
         $username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username);
@@ -93,7 +93,7 @@ class Auth
      * Valida a autenticação e redireciona mediante o estado do usuário
      * @param  boolean $redirect Parâmetro que define se é uma página pública ou não
      */
-    public function redirectCheck($redirect = false)
+    public function redirectCheck(bool $redirect = false)
     {
         if ($redirect && $this->login_check())
             $this->response->redirectTo($this->url_redirect_after_login);

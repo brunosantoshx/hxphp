@@ -1,8 +1,6 @@
 <?php
 namespace HXPHP\System\Configs;
 
-use HXPHP\System\Configs\Modules as Modules;
-
 abstract class AbstractEnvironment
 {
     public $baseURI;

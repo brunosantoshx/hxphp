@@ -25,7 +25,7 @@ class Messages
      * Método construtor
      * @param string $template Nome do arquivo que encontra-se na sub-pasta 'templates'
      */
-    public function __construct($file)
+    public function __construct(string $file)
     {
         /**
          * Recebe o conteúdo JSON do template definido
@@ -48,7 +48,7 @@ class Messages
      * Altera o bloco padrão
      * @param string $block
      */
-    public function setBlock($block)
+    public function setBlock(string $block)
     {
         $this->block = $block;
         return $this;
@@ -60,7 +60,7 @@ class Messages
      * @param  string $method getByCode()
      * @param  array  $args   Argumentos passados para o método
      */
-    public function __call($method, $args)
+    public function __call(string $method, array $args)
     {
         $block = $this->block;
 
@@ -75,7 +75,7 @@ class Messages
      * @param  string $block Nome do bloco
      * @return object        Instância do objeto Template
      */
-    public function __get($block)
+    public function __get(string $block)
     {
         if ($this->content[$block]) {
             $this->$block = new Template($this->content[$block]);

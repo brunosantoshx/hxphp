@@ -3,7 +3,7 @@ namespace HXPHP\System\Services\SimplecURL;
 
 class SimplecURL
 {
-    public static function connect($url, array $post = [], array $get = [])
+    public static function connect(string $url, array $post = [], array $get = [])
     {
         $url = explode('?', $url, 2);
 

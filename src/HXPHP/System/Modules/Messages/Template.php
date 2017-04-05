@@ -9,7 +9,7 @@ class Template
      */
     private $content;
 
-    public function __construct($content)
+    public function __construct(array $content)
     {
         $this->content = $content;
     }
@@ -20,7 +20,7 @@ class Template
      * @param  array  $fields Fields e seus parâmetros para substituição
      * @return array
      */
-    public function getByCode($code, array $fields = [])
+    public function getByCode(string $code, array $fields = [])
     {
         if ($this->content[$code]) {
             $output = $this->content[$code];

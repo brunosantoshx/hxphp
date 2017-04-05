@@ -13,7 +13,7 @@ class Environment
         $this->defaultEnvironment = $define->getDefault();
     }
 
-    public function add($environment = null)
+    public function add(string $environment = null)
     {
         if (!$environment)
             $environment = $this->defaultEnvironment;

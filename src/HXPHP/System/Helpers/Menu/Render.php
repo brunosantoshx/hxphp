@@ -24,7 +24,7 @@ class Render
     private $html;
 
     public function __construct(
-    RealLink $realLink, CheckActive $checkActive, $menu_itens, $menu_configs
+    RealLink $realLink, CheckActive $checkActive, array $menu_itens, array $menu_configs
     )
     {
         $this->realLink = $realLink;
@@ -37,7 +37,7 @@ class Render
     /**
      * Renderiza o menu em HTML
      */
-    public function getHTML($role = 'default')
+    public function getHTML(string $role = 'default')
     {
         $menu_itens = ($this->menu_itens[$role]) ? $this->menu_itens[$role] : [];
         $menu_configs = $this->menu_configs;

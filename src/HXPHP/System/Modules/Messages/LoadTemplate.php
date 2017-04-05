@@ -21,7 +21,7 @@ class LoadTemplate
      * Método responsável pela leitura do arquivo JSON
      * @param string $template Nome do template
      */
-    public function __construct($template, $extension = '.json')
+    public function __construct(string $template, string $extension = '.json')
     {
         /**
          * Caminho completo do template

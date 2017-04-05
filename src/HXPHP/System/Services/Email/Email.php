@@ -21,7 +21,7 @@ class Email
      * @param  bool   $accept_html Define se a mensagem será enviada em TXT ou HTML
      * @return bool             Status de envio e mensagem
      */
-    public function send($to, $subject, $message, array $from = [], $accept_html = true)
+    public function send(string $to, string $subject, string $message, array $from = [], bool $accept_html = true)
     {
         $to = strtolower($to);
         $subject = addslashes(trim($subject));

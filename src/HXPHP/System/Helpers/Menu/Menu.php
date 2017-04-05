@@ -1,6 +1,9 @@
 <?php
 namespace HXPHP\System\Helpers\Menu;
 
+use HXPHP\System\Configs\Config;
+use HXPHP\System\Http\Request;
+
 class Menu
 {
     /**
@@ -28,11 +31,11 @@ class Menu
     private $role;
 
     /**
-     * @param \HXPHP\System\Http\Request   $request Objeto Request
-     * @param \HXPHP\System\Configs\Config $configs Configurações do framework
-     * @param string                       $role    Nível de acesso
+     * @param Request $request Objeto Request
+     * @param Config  $configs Configurações do framework
+     * @param string  $role    Nível de acesso
      */
-    public function __construct(\HXPHP\System\Http\Request $request, \HXPHP\System\Configs\Config $configs, $role = 'default')
+    public function __construct(Request $request, Config $configs, string $role = 'default')
     {
         $this->role = $role;
 
@@ -51,7 +54,7 @@ class Menu
      * Dados do módulo de configuração do MenuHelper
      * @param array $configs
      */
-    private function setConfigs($configs)
+    private function setConfigs(Config $configs)
     {
         $this->configs = $configs;
 
@@ -61,7 +64,7 @@ class Menu
     /**
      * Define a URL atual
      */
-    private function setCurrentURL($request, $configs)
+    private function setCurrentURL(Request $request, Config $configs)
     {
         $parseURL = parse_url($request->server('REQUEST_URI'));
 

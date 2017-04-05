@@ -23,7 +23,7 @@ class Request
     /**
      * Método construtor
      */
-    public function __construct($baseURI = '', $controller_directory = '')
+    public function __construct(string $baseURI = '', string $controller_directory = '')
     {
         $this->subfolder = 'default';
         $this->initialize($baseURI, $controller_directory);
@@ -34,7 +34,7 @@ class Request
      * Define os parâmetros do mecanismo MVC
      * @return object Retorna o objeto com as propriedades definidas
      */
-    public function initialize($baseURI, $controller_directory)
+    public function initialize(string $baseURI, string $controller_directory)
     {
         if (!empty($baseURI) && !empty($controller_directory)) {
             $explode = array_values(array_filter(explode('/', $_SERVER['REQUEST_URI'])));
@@ -116,7 +116,7 @@ class Request
      * @param  string $name Nome do parâmetro
      * @return null         Retorna o array GET geral ou em um índice específico
      */
-    public function get($name = null)
+    public function get(string $name = null)
     {
         $get = $this->filter($_GET, INPUT_GET, $this->custom_filters);
 
@@ -136,7 +136,7 @@ class Request
      * @param  string $name Nome do parâmetro
      * @return null         Retorna o array POST geral ou em um índice específico
      */
-    public function post($name = null)
+    public function post(string $name = null)
     {
         $post = $this->filter($_POST, INPUT_POST, $this->custom_filters);
 
@@ -155,7 +155,7 @@ class Request
      * @param  string $name Nome do parâmetro
      * @return null         Retorna o array $_SERVER geral ou em um índice específico
      */
-    public function server($name = null)
+    public function server(string $name = null)
     {
         $server = $this->filter($_SERVER, INPUT_SERVER, $this->custom_filters);
 
@@ -176,7 +176,7 @@ class Request
      * @param string $name Nome do parâmetro
      * @return null Retorna o array $_COOKIE geral ou em um índice específico
      */
-    public function cookie($name = null)
+    public function cookie(string $name = null)
     {
         $cookie = $this->filter($_COOKIE, INPUT_COOKIE, $this->custom_filters);
 
@@ -194,7 +194,7 @@ class Request
      * @param  string $value Nome do método
      * @return null          Retorna um booleano ou o método em si
      */
-    public function getMethod($value = null)
+    public function getMethod(string $value = null)
     {
         $method = $_SERVER['REQUEST_METHOD'];
 

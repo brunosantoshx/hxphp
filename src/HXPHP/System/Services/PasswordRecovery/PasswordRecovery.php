@@ -19,7 +19,7 @@ class PasswordRecovery
      * Define o link
      * @param string $link Prefixo do link c/ barra no final Ex.: http://www.site.com.br/esqueci-a-senha/redefinir/
      */
-    public function __construct($link)
+    public function __construct(string $link)
     {
         $this->setLink($link);
     }
@@ -36,7 +36,7 @@ class PasswordRecovery
      * Define o link
      * @param string $link Prefixo do link c/ barra no final
      */
-    public function setLink($link)
+    public function setLink(string $link)
     {
         $this->generateToken();
         $this->link = $link . $this->token;
