@@ -35,6 +35,9 @@ if (version_compare(PHP_VERSION, '7.0.0', '<')) {
     		</a>
     		ou atualize seu PHP para a vers&atilde;o: 7.0.0 ou superior.
     	</h3>
+    	<h3>
+			Se você optar por atualizar o PHP lembre-se de atualizar todas as depend&ecirc;ncias atrav&eacute;s do Composer.
+    	</h3>
     ');
  }
 
