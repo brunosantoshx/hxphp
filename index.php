@@ -12,7 +12,7 @@ define('ROOT_PATH', dirname(__FILE__) . DS);
 define('APP_PATH', 'app' . DS);
 define('TEMPLATES_PATH', ROOT_PATH . 'templates' . DS);
 
-define('HXPHP_VERSION', '2.6.4');
+define('HXPHP_VERSION', '2.7.0');
 
 /**
  * Verifica se o autoload do Composer está configurado
