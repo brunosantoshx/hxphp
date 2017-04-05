@@ -22,8 +22,21 @@ $composer_autoload = 'vendor' . DS . 'autoload.php';
 if (!file_exists($composer_autoload))
     die('Execute o comando: composer install');
 
-if (version_compare(PHP_VERSION, '7.0.0', '<'))
-    die('Atualize seu PHP para a vers&atilde;o: 7.0.0 ou superior.');
+if (version_compare(PHP_VERSION, '7.0.0', '<')) {
+    die('
+    	<h2>
+    		O suporte ao PHP 5 terminou e o reposit&oacute;rio agora encontra-se 
+    		compat&iacute;vel com o PHP 7. 
+    	</h2>
+    	<h3>
+    		Para continuar com PHP 5 use: 
+    		<a href="https://github.com/brunosantoshx/hxphp/releases/tag/v2.6.5">
+    			https://github.com/brunosantoshx/hxphp/releases/tag/v2.6.5
+    		</a>
+    		ou atualize seu PHP para a vers&atilde;o: 7.0.0 ou superior.
+    	</h3>
+    ');
+ }
 
 require_once($composer_autoload);
 
