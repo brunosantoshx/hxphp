@@ -27,12 +27,12 @@ class Menu
     
     public $itens = [];
 
-    public function setConfigs(array $configs)
+    public function setConfigs(array $configs): array
     {
         return $this->configs = array_merge($this->configs, $configs);
     }
 
-    public function setMenus(array $itens, string $role = 'default')
+    public function setMenus(array $itens, string $role = 'default'): array
     {
         return $this->itens[$role] = $itens;
     }

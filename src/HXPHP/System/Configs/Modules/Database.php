@@ -23,7 +23,7 @@ class Database
         return $this;
     }
 
-    public function setConnectionData(array $data)
+    public function setConnectionData(array $data): self
     {
         foreach ($data as $param => $value) {
 
