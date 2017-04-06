@@ -83,7 +83,7 @@ class Request
      * Define filtros/flags customizados (http://php.net/manual/en/filter.filters.sanitize.php)
      * @param array $custom_filters Array com nome do campo e seu respectivo filtro
      */
-    public function setCustomFilters(array $custom_filters = [])
+    public function setCustomFilters(array $custom_filters = []): array
     {
         return $this->custom_filters = $custom_filters;
     }
@@ -209,7 +209,7 @@ class Request
      * Verifica se o método da requisição é POST
      * @return boolean Status da verificação
      */
-    public function isPost()
+    public function isPost(): bool
     {
         return $this->getMethod('POST');
     }
@@ -218,7 +218,7 @@ class Request
      * Verifica se o método da requisição é GET
      * @return boolean Status da verificação
      */
-    public function isGet()
+    public function isGet(): bool
     {
         return $this->getMethod('GET');
     }
@@ -227,7 +227,7 @@ class Request
      * Verifica se o método da requisição é PUT
      * @return boolean Status da verificação
      */
-    public function isPut()
+    public function isPut(): bool
     {
         return $this->getMethod('PUT');
     }
@@ -236,7 +236,7 @@ class Request
      * Verifica se o método da requisição é HEAD
      * @return boolean Status da verificação
      */
-    public function isHead()
+    public function isHead(): bool
     {
         return $this->getMethod('HEAD');
     }
@@ -246,7 +246,7 @@ class Request
      *
      * @return boolean Inputs estão corretos ou não
      */
-    public function isValid()
+    public function isValid(): bool
     {
         $method = $this->getMethod();
 
