@@ -9,7 +9,7 @@ class Cookie implements \HXPHP\System\Storage\StorageInterface
      * @param string $value Conteúdo do cookie
      * @param timestamp $time Tempo de duração do cookie
      */
-    public function set(string $name, string $value, int $time = 31556926)
+    public function set(string $name, string $value, int $time = 31556926): self
     {
         $cookieParams = session_get_cookie_params();
 
@@ -36,7 +36,7 @@ class Cookie implements \HXPHP\System\Storage\StorageInterface
      * @param  string  $name Nome do cookie
      * @return boolean       Status do processo
      */
-    public function exists(string $name)
+    public function exists(string $name): bool
     {
         return isset($_COOKIE[$name]);
     }

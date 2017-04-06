@@ -23,7 +23,7 @@ interface StorageInterface
      * @param  string $name
      * @return boolean
      */
-    public function exists(string $name);
+    public function exists(string $name): bool;
     /**
      * Usar para apagar um indice do storage
      *
