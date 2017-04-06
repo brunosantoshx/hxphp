@@ -57,7 +57,7 @@ class Alert
      * Retorna os alertas da aplicação
      * @return html
      */
-    public function getAlert()
+    public function getAlert(): string
     {
         $message = $this->storage->get('message');
         $this->storage->clear('message');
@@ -69,7 +69,7 @@ class Alert
      * Retorna os alertas da aplicação
      * @return html
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getAlert();
     }
