@@ -54,7 +54,7 @@ class Menu
      * Dados do módulo de configuração do MenuHelper
      * @param array $configs
      */
-    private function setConfigs(Config $configs)
+    private function setConfigs(Config $configs): self
     {
         $this->configs = $configs;
 
@@ -64,7 +64,7 @@ class Menu
     /**
      * Define a URL atual
      */
-    private function setCurrentURL(Request $request, Config $configs)
+    private function setCurrentURL(Request $request, Config $configs): self
     {
         $parseURL = parse_url($request->server('REQUEST_URI'));
 
@@ -77,7 +77,7 @@ class Menu
      * Exibe o HTML com o menu renderizado
      * @return string
      */
-    public function getMenu()
+    public function getMenu(): string
     {
         return $this->render->getHTML($this->role);
     }
@@ -86,7 +86,7 @@ class Menu
      * Exibe o HTML com o menu renderizado
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getMenu();
     }

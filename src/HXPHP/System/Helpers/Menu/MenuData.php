@@ -8,7 +8,7 @@ class MenuData
      * @param  string $key Titulo/Icone
      * @return object      Objeto com dados extraídos
      */
-    public static function get(string $key)
+    public static function get(string $key): \stdClass
     {
         $obj = new \stdClass;
 

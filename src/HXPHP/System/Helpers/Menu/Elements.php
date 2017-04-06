@@ -82,7 +82,7 @@ class Elements
      * @param  array  $args Array para preencher os coringas presentes nos elementos
      * @return string       HTML do elemento
      */
-    public static function get(string $name, array $args = [])
+    public static function get(string $name, array $args = []): string
     {
         if (!self::$elements[$name])
             return false;

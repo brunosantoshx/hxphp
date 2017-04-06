@@ -26,7 +26,7 @@ class CheckActive
      * @param  string $URL Link do menu
      * @return bool        Status do link
      */
-    public function link(string $URL)
+    public function link(string $URL): bool
     {
         $position = strpos($this->current_URL, $URL);
         return $this->current_URL === $URL || ($position && $position > 0) ? true : false;
@@ -37,7 +37,7 @@ class CheckActive
      * @param  array $values Links do dropdown
      * @return bool        	 Status do dropdown
      */
-    public function dropdown(array $values)
+    public function dropdown(array $values): bool
     {
         $values = array_values($values);
         $status = false;
