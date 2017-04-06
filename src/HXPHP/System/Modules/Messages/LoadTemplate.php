@@ -46,7 +46,7 @@ class LoadTemplate
      * Retorna o caminho do template
      * @return string
      */
-    public function getTemplatePath()
+    public function getTemplatePath(): string
     {
         return $this->file;
     }
