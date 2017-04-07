@@ -26,7 +26,7 @@ class Alert
         if (count($alert) === 0)
             return null;
 
-        $alert[2] = !isset($alert[2]) ? '' : $alert[2];
+        $alert[2] = $alert[2] ?? '';
 
         list($style, $title, $message) = $alert;
 
