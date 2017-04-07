@@ -14,7 +14,7 @@ class Session implements \HXPHP\System\Storage\StorageInterface
      * @param string $value Conteúdo da sessão
      * @param int $timeout  Tempo de expiração da sessão
      */
-    public function set(string $name, string $value, int $timeout = null)
+    public function set(string $name, string $value, int $timeout = null): self
     {
         $_SESSION[self::PREFIX][$name] = $value;
 
@@ -48,7 +48,7 @@ class Session implements \HXPHP\System\Storage\StorageInterface
      * @param  string  $name Nome da sessão
      * @return boolean       Status do processo
      */
-    public function exists(string $name)
+    public function exists(string $name): bool
     {
         return isset($_SESSION[self::PREFIX][$name]);
     }
@@ -58,7 +58,7 @@ class Session implements \HXPHP\System\Storage\StorageInterface
      * @param string $name   Nome da sessão
      * @return boolean       Sessão expirada ou não
      */
-    public function hasExpired(string $name)
+    public function hasExpired(string $name): bool
     {
         if (!$this->exists($name . '_timeout'))
             return false;
@@ -75,7 +75,7 @@ class Session implements \HXPHP\System\Storage\StorageInterface
      * @param string $name   Nome da sessão
      * @return date          Quantidade de tempo restante para o timeout
      */
-    public function getTimeLeftOf(string $name)
+    public function getTimeLeftOf(string $name): int
     {
         if ($this->hasExpired($name))
             return 0;

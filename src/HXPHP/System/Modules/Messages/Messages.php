@@ -48,7 +48,7 @@ class Messages
      * Altera o bloco padrão
      * @param string $block
      */
-    public function setBlock(string $block)
+    public function setBlock(string $block): self
     {
         $this->block = $block;
         return $this;

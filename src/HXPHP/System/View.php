@@ -97,7 +97,7 @@ class View
      * Define o diretório das views parciais
      * @param string  $partialsDir  Diretório
      */
-    public function setPartialsDir(string $partialsDir, bool $overwrite = false)
+    public function setPartialsDir(string $partialsDir, bool $overwrite = false): self
     {
         $viewsDir = $this->configs->views->directory;
 
@@ -111,7 +111,7 @@ class View
      * Define o título da página
      * @param string  $title  Título da página
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
         return $this;
@@ -121,7 +121,7 @@ class View
      * Define a pasta da view
      * @param string  $path  Caminho da View
      */
-    public function setPath(string $path, bool $overwrite = false)
+    public function setPath(string $path, bool $overwrite = false): self
     {
         $this->path = $overwrite === false ? $this->subfolder . $path : $path;
         return $this;
@@ -131,7 +131,7 @@ class View
      * Define se o arquivo é miolo (Inclusão de Cabeçalho e Rodapé) ou único
      * @param bool  $template  Template ON/OFF
      */
-    public function setTemplate(bool $template)
+    public function setTemplate(bool $template): self
     {
         $this->template = $template;
         return $this;
@@ -141,7 +141,7 @@ class View
      * Define o cabeçalho da view
      * @param string  $header  Cabeçalho da View
      */
-    public function setHeader(string $header, bool $overwrite = false)
+    public function setHeader(string $header, bool $overwrite = false): self
     {
         $this->header = $overwrite === false ? $this->subfolder . $header : $header;
         return $this;
@@ -151,7 +151,7 @@ class View
      * Define o arquivo da view
      * @param string  $file  Arquivo da View
      */
-    public function setFile(string $file)
+    public function setFile(string $file): self
     {
         $this->file = $file;
         return $this;
@@ -161,7 +161,7 @@ class View
      * Define o rodapé da view
      * @param string  $footer  Rodapé da View
      */
-    public function setFooter(string $footer, bool $overwrite = false)
+    public function setFooter(string $footer, bool $overwrite = false): self
     {
         $this->footer = $overwrite === false ? $this->subfolder . $footer : $footer;
         return $this;
@@ -171,7 +171,7 @@ class View
      * Define um conjunto de variáveis para a VIEW
      * @param array  $vars  Array com variáveis
      */
-    public function setVars(array $vars)
+    public function setVars(array $vars): self
     {
         $this->vars = array_merge($this->vars, $vars);
         return $this;
@@ -182,7 +182,7 @@ class View
      * @param string  $name  Nome do índice
      * @param string  $value  Valor
      */
-    public function setVar(string $name, $value)
+    public function setVar(string $name, $value): self
     {
         $this->vars[$name] = $value;
         return $this;
@@ -193,7 +193,7 @@ class View
      * @param string  $type  Tipo do arquivo
      * @param string|array  $assets  Arquivo Único | Array com os arquivos
      */
-    public function setAssets(string $type, $assets)
+    public function setAssets(string $type, $assets): self
     {
         (is_array($assets)) ?
                         $this->assets[$type] = array_merge($this->assets[$type], $assets) :
@@ -208,7 +208,7 @@ class View
      * @param  array  $custom_assets Links dos arquivos que serão incluídos
      * @return string                HTML formatado de acordo com o tipo de arquivo
      */
-    private function assets(string $type, array $custom_assets = [])
+    private function assets(string $type, array $custom_assets = []): string
     {
         $add_assets = '';
 
@@ -306,7 +306,7 @@ class View
         require($viewFile);
     }
 
-    public function getRelativeURL(string $URL, bool $controller = true)
+    public function getRelativeURL(string $URL, bool $controller = true): string
     {
         $path = $controller === true ? $this->path . DS : $this->subfolder;
 

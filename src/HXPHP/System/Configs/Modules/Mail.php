@@ -15,7 +15,7 @@ class Mail
         return $this;
     }
 
-    public function setFrom(array $data)
+    public function setFrom(array $data): self
     {
         $this->from = $data['from'];
         $this->from_mail = $data['from_mail'];
@@ -23,7 +23,7 @@ class Mail
         return $this;
     }
 
-    public function getFrom()
+    public function getFrom(): array
     {
         return [
             'from_mail' => $this->from_mail,

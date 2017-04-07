@@ -20,7 +20,7 @@ class Template
      * @param  array  $fields Fields e seus parâmetros para substituição
      * @return array
      */
-    public function getByCode(string $code, array $fields = [])
+    public function getByCode(string $code, array $fields = []): array
     {
         if ($this->content[$code]) {
             $output = $this->content[$code];

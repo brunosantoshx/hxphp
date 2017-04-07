@@ -25,7 +25,7 @@ class DefineEnvironment
             $this->currentEnviroment = $environment;
     }
     
-    public function getDefault()
+    public function getDefault(): string
     {
         return $this->currentEnviroment;
     }
@@ -33,7 +33,7 @@ class DefineEnvironment
 
 trait CurrentEnviroment
 {
-    public function getCurrentEnvironment()
+    public function getCurrentEnvironment(): string
     {
         $default = new DefineEnvironment;
         return $default->getDefault();

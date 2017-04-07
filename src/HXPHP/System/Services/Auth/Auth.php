@@ -124,7 +124,7 @@ class Auth
      * Verifica se o usuário está logado
      * @return boolean Status da autenticação
      */
-    public function login_check()
+    public function login_check(): bool
     {
         if ($this->storage->exists($this->subfolder . '_user_id') &&
                 $this->storage->exists($this->subfolder . '_username') &&
@@ -145,7 +145,7 @@ class Auth
      * Retorna a ID do usuário autenticado
      * @return integer ID do usuário
      */
-    public function getUserId()
+    public function getUserId(): int
     {
         return $this->storage->get($this->subfolder . '_user_id');
     }
@@ -154,7 +154,7 @@ class Auth
      * Retorna o role do usuário autenticado
      * @return string Role do usuário
      */
-    public function getUserRole()
+    public function getUserRole(): string
     {
         return $this->storage->get($this->subfolder . '_user_role');
     }

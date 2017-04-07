@@ -32,7 +32,7 @@ class Tools
      * @param  string $salt     Código alfanumérico
      * @return array            Array com o SALT e a SENHA
      */
-    public static function hashHX(string $password, string $salt = null)
+    public static function hashHX(string $password, string $salt = null): array
     {
         if (!$salt)
             $salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
@@ -50,7 +50,7 @@ class Tools
      * @param string $input     String que será convertida
      * @return string           String convertida
      */
-    public static function filteredName(string $input)
+    public static function filteredName(string $input): string
     {
         $input = explode('?', $input);
         $input = $input[0];
@@ -66,7 +66,7 @@ class Tools
         return str_replace(' ', '', ucwords(str_replace($find, $replace, $input)));
     }
 
-    public static function filteredFileName(string $input)
+    public static function filteredFileName(string $input): string
     {
         $input = trim($input);
 
@@ -184,7 +184,7 @@ class Tools
         return strtolower(str_replace(' ', '_', str_replace($find, $replace, $new)));
     }
 
-    public static function decamelize(string $cameled, string $sep = '-')
+    public static function decamelize(string $cameled, string $sep = '-'): string
     {
         return implode(
                 $sep, array_map(

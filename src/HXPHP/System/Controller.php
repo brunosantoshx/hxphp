@@ -44,7 +44,7 @@ class Controller
      * @param  Config $configs Objeto com as configurações da aplicação
      * @return object
      */
-    public function setConfigs(Configs\Config $configs)
+    public function setConfigs(Configs\Config $configs): self
     {
         //Injeção das dependências
         $this->configs = $configs;
@@ -129,7 +129,7 @@ class Controller
      * @param  boolean $controller Define se o controller também será retornado
      * @return string              Link relativo
      */
-    public function getRelativeURL(string $URL, bool $controller = true)
+    public function getRelativeURL(string $URL, bool $controller = true): string
     {
         $path = $controller === true ? $this->view->path . DS : $this->view->subfolder;
 
