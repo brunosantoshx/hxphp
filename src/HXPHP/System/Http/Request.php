@@ -166,7 +166,7 @@ class Request
             return $server;
 
         if (!isset($server[$name]) && !isset($_SERVER[$name]))
-            return NULL;
+            return null;
 
         if (isset($_SERVER[$name]))
             return $_SERVER[$name];
@@ -187,7 +187,7 @@ class Request
             return $cookie;
 
         if (!isset($cookie[$name]))
-            return NULL;
+            return null;
 
         return $cookie[$name];
     }
