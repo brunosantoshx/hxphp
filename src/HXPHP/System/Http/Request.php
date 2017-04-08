@@ -103,8 +103,6 @@ class Request
             if (!array_key_exists($key, $custom_filters))
                 $filters[$key] = constant('FILTER_SANITIZE_STRING');
 
-
-
         if (is_array($custom_filters) && is_array($custom_filters))
             $filters = array_merge($filters, $custom_filters);
 
@@ -120,15 +118,17 @@ class Request
     {
         $get = $this->filter($_GET, INPUT_GET, $this->custom_filters);
 
-        if (!$name)
-            return $get;
+        if (!$name) {
+            foreach ($get as $field => $value)
+                $get[$field] = trim($value);
 
+            return $get;
+        }
 
         if (!isset($get[$name]))
             return null;
 
-
-        return $get[$name];
+        return trim($get[$name]);
     }
 
     /**
@@ -140,14 +140,17 @@ class Request
     {
         $post = $this->filter($_POST, INPUT_POST, $this->custom_filters);
 
-        if (!$name)
+        if (!$name) {
+            foreach ($post as $field => $value)
+                $post[$field] = trim($value);
+
             return $post;
+        }
 
         if (!isset($post[$name]))
             return null;
 
-
-        return $post[$name];
+        return trim($post[$name]);
     }
 
     /**
@@ -163,7 +166,7 @@ class Request
             return $server;
 
         if (!isset($server[$name]) && !isset($_SERVER[$name]))
-            return NULL;
+            return null;
 
         if (isset($_SERVER[$name]))
             return $_SERVER[$name];
@@ -184,7 +187,7 @@ class Request
             return $cookie;
 
         if (!isset($cookie[$name]))
-            return NULL;
+            return null;
 
         return $cookie[$name];
     }
@@ -200,7 +203,6 @@ class Request
 
         if ($value)
             return $method == $value;
-
 
         return $method;
     }
