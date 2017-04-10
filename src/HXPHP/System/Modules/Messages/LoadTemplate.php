@@ -1,7 +1,7 @@
 <?php
 namespace HXPHP\System\Modules\Messages;
 
-use HXPHP\System\Tools as Tools;
+use HXPHP\System\Tools;
 
 class LoadTemplate
 {
