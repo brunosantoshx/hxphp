@@ -1,8 +1,10 @@
 <?php
 namespace HXPHP\System\Helpers\Menu;
 
-use HXPHP\System\Configs\Config;
-use HXPHP\System\Http\Request;
+use HXPHP\System\{
+    Http\Request,
+    Configs\Config
+};
 
 class Menu
 {
