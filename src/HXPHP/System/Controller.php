@@ -1,7 +1,10 @@
 <?php
 namespace HXPHP\System;
 
-use HXPHP\System\Http as Http;
+use HXPHP\System\{
+    Http,
+    Configs\Config
+};
 
 class Controller
 {
@@ -29,7 +32,7 @@ class Controller
      */
     public $view;
 
-    public function __construct(Configs\Config $configs = null)
+    public function __construct(Config $configs = null)
     {
         //Injeção da VIEW
         $this->view = new View;
@@ -44,7 +47,7 @@ class Controller
      * @param  Config $configs Objeto com as configurações da aplicação
      * @return object
      */
-    public function setConfigs(Configs\Config $configs): self
+    public function setConfigs(Config $configs): self
     {
         //Injeção das dependências
         $this->configs = $configs;
