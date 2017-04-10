@@ -1,7 +1,7 @@
 <?php
 namespace HXPHP\System\Configs;
 
-use HXPHP\System\Http\Request as Request;
+use HXPHP\System\Http\Request;
 
 class GlobalConfig
 {
