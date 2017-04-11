@@ -12,7 +12,7 @@ define('ROOT_PATH', dirname(__FILE__) . DS);
 define('APP_PATH', 'app' . DS);
 define('TEMPLATES_PATH', ROOT_PATH . 'templates' . DS);
 
-define('HXPHP_VERSION', '2.7.0');
+define('HXPHP_VERSION', '3.0.0-rc.1');
 
 /**
  * Verifica se o autoload do Composer está configurado
@@ -30,8 +30,8 @@ if (version_compare(PHP_VERSION, '7.0.0', '<')) {
     	</h2>
     	<h3>
     		Para continuar com PHP 5 use: 
-    		<a href="https://github.com/brunosantoshx/hxphp/releases/tag/v2.6.5">
-    			https://github.com/brunosantoshx/hxphp/releases/tag/v2.6.5
+    		<a href="https://github.com/brunosantoshx/hxphp/releases/tag/v2.18.14">
+    			https://github.com/brunosantoshx/hxphp/releases/tag/v2.18.14
     		</a>
     		ou atualize seu PHP para a vers&atilde;o: 7.0.0 ou superior.
     	</h3>
