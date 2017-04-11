@@ -1,7 +1,7 @@
 <?php
 namespace HXPHP\System\Helpers\Alert;
 
-use HXPHP\System\Storage as Storage;
+use HXPHP\System\Storage;
 
 class Alert
 {
