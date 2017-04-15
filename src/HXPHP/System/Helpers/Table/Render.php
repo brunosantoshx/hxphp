@@ -74,7 +74,7 @@ class Render
     * Une e renderiza a tabela
     * @return string    HTML da tabela
     */
-    public function getHTML()
+    public function getHTML(): string
     {
         $table_attrs = implode(' ', $this->table->table_attrs);
         
@@ -86,6 +86,5 @@ class Render
         $html = sprintf($this->table->tag_table, $table_attrs, $caption.$header.$body.$footer);
         
         return $html;        
-    }
-    
+    }    
 }

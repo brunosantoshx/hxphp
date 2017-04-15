@@ -180,7 +180,7 @@ class Table
     /**
     * Exibe o HTML com a tabela renderizada
     */
-    public function getTable()
+    public function getTable(): string
     {
         $render = new Render($this);
         return $render->getHTML();
@@ -189,10 +189,8 @@ class Table
     /**
     * Exibe o HTML renderizado
     */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getTable();
-    }
-    
-    
+    }    
 }
