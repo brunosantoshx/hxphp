@@ -60,7 +60,7 @@ class Cell
     }
     
     /*
-    * Retorna a célula renderizada em HTML
+    * Exibe o HTML da célula renderizada
     * @return string do HTML da célula
     */
     public function getHTML(): string

@@ -6,7 +6,7 @@ class Row
     //Armazena o HTML da linha
     private $HTML;
     
-    //TAG tr com coringas para substituição (tag para o corpo da tabela)
+    //TAG tr com coringas para substituição 
     private $tr = '<tr %s>%s</tr>';
     
     //Armazena os atributos da linha
@@ -27,6 +27,8 @@ class Row
     
     /**
     * Adiciona uma célula
+    * @param string $type   Tipo da tag (td ou th)
+    * @param $cell          Conteúdo e atributos da célula
     */
     public function addCell(string $type, $cell)
     {
@@ -34,6 +36,9 @@ class Row
         $this->cells[] = $cell->getHTML();
     }
     
+    /**
+    * Renderiza a linha
+    */
     public function render()
     {
         $attrs = implode(' ', $this->attrs);
@@ -43,6 +48,9 @@ class Row
         $this->HTML = sprintf($this->tr, $attrs, $cells);
     }
     
+    /**
+    * Exibe o HTML da linha renderizada
+    */
     public function getHTML(): string
     {
         $this->render();
