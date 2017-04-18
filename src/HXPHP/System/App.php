@@ -2,8 +2,8 @@
 namespace HXPHP\System;
 
 use HXPHP\System\{
-    Http,
-    Configs\Config
+    Http;
+use Configs\Config
 };
 
 class App
@@ -38,6 +38,10 @@ class App
         return $this;
     }
 
+    public function get($url, $source)
+    {
+    }
+
     /**
      * Configuração do ORM
      */
@@ -46,7 +50,7 @@ class App
         $cfg = \ActiveRecord\Config::instance();
         $cfg->set_model_directory($this->configs->models->directory);
         $cfg->set_connections(
-                [
+            [
                     'development' => $this->configs->database->driver . '://'
                     . $this->configs->database->user
                     . ':' . $this->configs->database->password
@@ -80,8 +84,9 @@ class App
         $controllerFile = $controller_directory . $controller . '.php';
         $notFoundControllerFile = $controller_directory . $notFoundController . '.php';
 
-        if (!file_exists($controllerFile))
+        if (!file_exists($controllerFile)) {
             $controllerFile = $notFoundControllerFile;
+        }
 
         //Inclusão do Controller
         require_once($controllerFile);
@@ -96,8 +101,9 @@ class App
         $app = new $controller($this->configs);
 
         //Verifica se a Action requisitada não existe
-        if (!method_exists($app, $action))
+        if (!method_exists($app, $action)) {
             $action = 'indexAction';
+        }
 
         //Injeção das configurações
         $app->setConfigs($this->configs);

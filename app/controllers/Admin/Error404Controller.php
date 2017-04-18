@@ -1,8 +1,12 @@
 <?php
 
+namespace Controllers\Admin;
+
+use HXPHP\System\Controller;
+
 header("HTTP/1.0 404 Not Found");
 
-class Error404Controller extends \HXPHP\System\Controller
+class Error404Controller extends Controller
 {
     public function indexAction()
     {

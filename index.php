@@ -19,8 +19,9 @@ define('HXPHP_VERSION', '3.0.0-rc.1');
  */
 $composer_autoload = 'vendor' . DS . 'autoload.php';
 
-if (!file_exists($composer_autoload))
+if (!file_exists($composer_autoload)) {
     die('Execute o comando: composer install');
+}
 
 if (version_compare(PHP_VERSION, '7.0.0', '<')) {
     die('
@@ -39,7 +40,7 @@ if (version_compare(PHP_VERSION, '7.0.0', '<')) {
 			Se você optar por atualizar o PHP lembre-se de atualizar todas as depend&ecirc;ncias atrav&eacute;s do Composer.
     	</h3>
     ');
- }
+}
 
 require_once($composer_autoload);
 
@@ -49,4 +50,7 @@ HXPHP\System\Services\StartSession\StartSession::sec_session_start();
 //Inicio da aplicação
 $app = new HXPHP\System\App(require_once APP_PATH . 'config.php');
 $app->ActiveRecord();
+
+require APP_PATH . DS . 'routes.php';
+
 $app->run();
