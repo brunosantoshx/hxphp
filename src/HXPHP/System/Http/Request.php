@@ -41,11 +41,11 @@ class Request
 
             $baseURICount = count(array_filter(explode('/', $baseURI)));
 
-            if (count($explode) == $baseURICount)
+            if (count($explode) == $baseURICount) {
                 return $this;
+            }
 
             if (count($explode) != $baseURICount) {
-
                 for ($i = 0; $i < $baseURICount; $i++) {
                     unset($explode[$i]);
                 }
@@ -56,8 +56,9 @@ class Request
             if (file_exists($controller_directory . $explode[0])) {
                 $this->subfolder = $explode[0];
 
-                if (isset($explode[1]))
+                if (isset($explode[1])) {
                     $this->controller = Tools::filteredName($explode[1]) . 'Controller';
+                }
 
                 if (isset($explode[2])) {
                     $this->action = lcfirst(Tools::filteredName($explode[2])) . 'Action';
@@ -90,8 +91,8 @@ class Request
 
     /**
      * Realiza o tratamento das super globais
-     * @param  array $request 		  Array nativo com campos e valores passados
-     * @param  const $data    		  Constante que será tratada
+     * @param  array $request         Array nativo com campos e valores passados
+     * @param  const $data            Constante que será tratada
      * @param  array $custom_filters  Filtros customizados para determinados campos
      * @return array                  Constate tratada
      */
@@ -99,12 +100,15 @@ class Request
     {
         $filters = [];
 
-        foreach ($request as $key => $value)
-            if (!array_key_exists($key, $custom_filters))
+        foreach ($request as $key => $value) {
+            if (!array_key_exists($key, $custom_filters)) {
                 $filters[$key] = constant('FILTER_SANITIZE_STRING');
+            }
+        }
 
-        if (is_array($custom_filters) && is_array($custom_filters))
+        if (is_array($custom_filters) && is_array($custom_filters)) {
             $filters = array_merge($filters, $custom_filters);
+        }
 
         return filter_input_array($data, $filters);
     }
@@ -119,14 +123,16 @@ class Request
         $get = $this->filter($_GET, INPUT_GET, $this->custom_filters);
 
         if (!$name) {
-            foreach ($get as $field => $value)
+            foreach ($get as $field => $value) {
                 $get[$field] = trim($value);
+            }
 
             return $get;
         }
 
-        if (!isset($get[$name]))
+        if (!isset($get[$name])) {
             return null;
+        }
 
         return trim($get[$name]);
     }
@@ -141,14 +147,16 @@ class Request
         $post = $this->filter($_POST, INPUT_POST, $this->custom_filters);
 
         if (!$name) {
-            foreach ($post as $field => $value)
+            foreach ($post as $field => $value) {
                 $post[$field] = trim($value);
+            }
 
             return $post;
         }
 
-        if (!isset($post[$name]))
+        if (!isset($post[$name])) {
             return null;
+        }
 
         return trim($post[$name]);
     }
@@ -162,14 +170,17 @@ class Request
     {
         $server = $this->filter($_SERVER, INPUT_SERVER, $this->custom_filters);
 
-        if (!$name)
+        if (!$name) {
             return $server;
+        }
 
-        if (!isset($server[$name]) && !isset($_SERVER[$name]))
+        if (!isset($server[$name]) && !isset($_SERVER[$name])) {
             return null;
+        }
 
-        if (isset($_SERVER[$name]))
+        if (isset($_SERVER[$name])) {
             return $_SERVER[$name];
+        }
 
         return $server[$name];
     }
@@ -183,11 +194,13 @@ class Request
     {
         $cookie = $this->filter($_COOKIE, INPUT_COOKIE, $this->custom_filters);
 
-        if (!$name)
+        if (!$name) {
             return $cookie;
+        }
 
-        if (!isset($cookie[$name]))
+        if (!isset($cookie[$name])) {
             return null;
+        }
 
         return $cookie[$name];
     }
@@ -201,8 +214,9 @@ class Request
     {
         $method = $_SERVER['REQUEST_METHOD'];
 
-        if ($value)
+        if ($value) {
             return $method == $value;
+        }
 
         return $method;
     }

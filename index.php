@@ -1,4 +1,5 @@
 <?php
+
 ob_start();
 
 ini_set('display_errors', 1);
@@ -14,13 +15,15 @@ define('TEMPLATES_PATH', ROOT_PATH . 'templates' . DS);
 
 define('HXPHP_VERSION', '3.0.0-rc.1');
 
+
 /**
  * Verifica se o autoload do Composer está configurado
  */
 $composer_autoload = 'vendor' . DS . 'autoload.php';
 
-if (!file_exists($composer_autoload))
+if (!file_exists($composer_autoload)) {
     die('Execute o comando: composer install');
+}
 
 if (version_compare(PHP_VERSION, '7.0.0', '<')) {
     die('
@@ -39,7 +42,7 @@ if (version_compare(PHP_VERSION, '7.0.0', '<')) {
 			Se você optar por atualizar o PHP lembre-se de atualizar todas as depend&ecirc;ncias atrav&eacute;s do Composer.
     	</h3>
     ');
- }
+}
 
 require_once($composer_autoload);
 

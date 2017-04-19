@@ -1,0 +1,41 @@
+version: "2"
+services:
+    mysql:
+      image: mysql:5.7
+      container_name: hxphp-mysql
+      working_dir: /hxphp
+      environment:
+        - MYSQL_ROOT_PASSWORD=hxphp
+        - MYSQL_DATABASE=hxphp
+        - MYSQL_USER=hxphp
+        - MYSQL_PASSWORD=hxphp
+
+    hxphp:
+      build: docker/app
+      restart: always
+      container_name: hxphp-app
+      working_dir: /hxphp
+      ports:
+        - "3233:80"
+      environment:
+        - WEB_DOCUMENT_ROOT=/hxphp
+        - WEB_ALIAS_DOMAIN=hxphp.local
+      volumes:
+        - .:/hxphp
+        - ./docker/conf/php/cli.ini:/etc/php/7.0/cli/conf.d/100-custom.ini
+        - ./docker/conf/php/fpm.ini:/etc/php/7.0/fpm/conf.d/100-custom.ini
+      links:
+        - php-fpm
+
+    php-fpm:
+      build:
+        context: .
+        dockerfile: docker/php-fpm/Dockerfile
+      container_name: hxphp-php-fpm
+      working_dir: /hxphp
+      volumes:
+        - .:/hxphp
+        - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.0/fpm/conf.d/99-overrides.ini
+
+      links:
+        - mysql

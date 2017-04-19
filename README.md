@@ -8,6 +8,11 @@ O HXPHP é um mini-framework PHP.
 #### PHP 7.0.0:
 [https://github.com/brunosantoshx/hxphp/releases/tag/3.0.0-rc.1](https://github.com/brunosantoshx/hxphp/releases/tag/3.0.0-rc.1).
 
+#### Docker
+O docker foi adicionado ao projeto para facilitar a utilização, poís nem todos tem a versão 7 do php.
+Para subir os catainers execute o comando `docker-compose up -d` na pasta raiz do HXPHP.
+Após a inicialização acesse seu endereço local na porta `3233`.
+[Site do Docker](https://www.docker.com/) e [Docker Compose](https://docs.docker.com/compose/).
 
 ### Qual é a diferença do HXPHP e os demais frameworks PHP?
 --------------------------------------------------------------------
