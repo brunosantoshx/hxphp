@@ -40,7 +40,5 @@ class GlobalConfig
 
         //General
         $this->title = 'HXPHP Framework';
-
-        return $this;
     }
 }
