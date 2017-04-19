@@ -49,8 +49,6 @@ class Auth
         $this->redirect = $redirect;
 
         $this->subfolder = $subfolder;
-
-        return $this;
     }
 
     /**
