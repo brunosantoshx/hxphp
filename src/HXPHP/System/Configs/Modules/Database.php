@@ -20,7 +20,6 @@ class Database
             'dbname' => 'hxphp',
             'charset' => 'utf8'
         ]);
-        return $this;
     }
 
     public function setConnectionData(array $data): self
