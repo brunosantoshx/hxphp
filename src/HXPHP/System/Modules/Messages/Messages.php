@@ -40,8 +40,6 @@ class Messages
          */
         if ($template->getJson())
             $this->content = json_decode($template->getJson(), true);
-
-        return $this;
     }
 
     /**
