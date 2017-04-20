@@ -164,11 +164,11 @@ class Request
         if (!$name)
             return $server;
 
-        if (!isset($server[$name]) && !isset($_SERVER[$name]))
-            return null;
-
-        if (isset($_SERVER[$name]))
+        if (is_null($server[$name]))
             return $_SERVER[$name];
+
+        if (!isset($server[$name]))
+            return null;
 
         return $server[$name];
     }
