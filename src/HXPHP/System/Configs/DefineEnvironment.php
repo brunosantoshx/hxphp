@@ -1,6 +1,8 @@
 <?php
 namespace HXPHP\System\Configs;
 
+use HXPHP\System\Http\Request;
+
 class DefineEnvironment
 {
     private $currentEnviroment;
@@ -8,7 +10,8 @@ class DefineEnvironment
     public function __construct()
     {
         //Servidor atual
-        $server_name = $_SERVER['SERVER_NAME'];
+        $request = new Request();
+        $https = $request->server('SERVER_NAME');
 
         //Estanciamento da pasta Environments
         $enviroments = new \FilesystemIterator(__DIR__ . '/Environments', \FilesystemIterator::SKIP_DOTS);
