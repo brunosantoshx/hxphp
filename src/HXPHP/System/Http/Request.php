@@ -27,7 +27,6 @@ class Request
     {
         $this->subfolder = 'default';
         $this->initialize($baseURI, $controller_directory);
-        return $this;
     }
 
     /**

@@ -14,7 +14,5 @@ class EnvironmentDevelopment extends Configs\AbstractEnvironment
             'localhost',
             '127.0.0.1'
         ];
-
-        return $this;
     }
 }
