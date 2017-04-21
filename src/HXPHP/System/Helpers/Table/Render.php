@@ -19,13 +19,8 @@ class Render
     * @return string    HTML do caption
     */
     public function captionRender()
-    {
-        $caption = $this->table->getCaption();
-        $tag = '<caption %s>%s</caption>';
-        
-        $attrs = implode($caption['attrs']);
-        
-        return sprintf($tag, $attrs, $caption['content']);
+    {        
+        return $this->table->getCaption();
     }
     
     /**
