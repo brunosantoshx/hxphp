@@ -11,7 +11,7 @@ class DefineEnvironment
     {
         //Servidor atual
         $request = new Request();
-        $https = $request->server('SERVER_NAME');
+        $server_name = $request->server('SERVER_NAME');
 
         //Estanciamento da pasta Environments
         $enviroments = new \FilesystemIterator(__DIR__ . '/Environments', \FilesystemIterator::SKIP_DOTS);
