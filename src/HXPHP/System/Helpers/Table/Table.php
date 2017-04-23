@@ -13,7 +13,7 @@ class Table
     private $footer = [];
     
     //Armazena o conteudo da caption
-    private $caption_content;
+    private $caption;
     
     //Armazena os atributos da tag <caption>
     private $caption_attrs = []; 
@@ -137,19 +137,18 @@ class Table
             foreach ($attrs as $attr => $value)
                 $this->caption_attrs[] = $attr.'="'.$value.'"';
         
-        $this->caption_content = $content;
+        $attrs = implode($this->caption_attrs);
+        
+        $this->caption = '<caption '.$attrs.'>'.$content.'</caption>';
     }
     
     /**
     * Captura o conteúdo de Caption
     * @return array Conteúdo e atributos da tag caption
     */
-    public function getCaption(): array
+    public function getCaption(): string
     {
-        $caption['content'] = $this->caption_content;
-        $caption['attrs'] = $this->caption_attrs;
-        
-        return $caption;
+        return $this->caption;
     }
     
     /**
