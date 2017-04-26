@@ -3,6 +3,8 @@ namespace HXPHP\System\Helpers\Table;
 
 class Table
 {
+    public $elements;
+    
     //Armazena as rows da tabela
     private $rows = [];
     
@@ -42,6 +44,10 @@ class Table
     //Armazena os atributos da tag <tfoot>
     private $tfoot_attrs = [];
     
+    public function __construct($template = null)
+    {
+        $this->elements = new Elements;
+    }    
     
     /**
     * Adiciona uma linha à tabela
