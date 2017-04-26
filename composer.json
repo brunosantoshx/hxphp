@@ -1,7 +1,8 @@
 {
     "name": "Bruno/hxphp",
     "require": {
-        "php-activerecord/php-activerecord": "dev-master"
+        "php-activerecord/php-activerecord": "dev-master",
+        "phpmailer/phpmailer": "^5.2"
     },
     "authors": [
         {
