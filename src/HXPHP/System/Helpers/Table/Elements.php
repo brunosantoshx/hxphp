@@ -14,7 +14,7 @@ class Elements
     public function setTemplate(string $template)
     {
         $template = new Template($template);
-        
+
         if (!is_array($template->get()))
             return false;
         

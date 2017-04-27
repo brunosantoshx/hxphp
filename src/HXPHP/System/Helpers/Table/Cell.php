@@ -12,20 +12,13 @@ class Cell
     //Armazena os atributos da célula
     private $attrs = [];
     
-    //Tipo de celula(tag)
-    private $type;
-    
     //TAG HTML para celulas do corpo da tabela
-    private $td = '<td %s>%s</td>';
-    
-    //TAG HTML para celulas do Cabeçalho
-    private $th = '<th %s>%s</th>';
+    private $tag;
     
     /**
-    * @param string $type       Tipo de tag (TD OU TH)
     * @param string $cell       Conteudo da celula, e pode conter atributos
     */
-    public function __construct(string $type, $cell)
+    public function __construct($cell, $elements, $tag)
     {
         if (is_array($cell)) {
             
@@ -41,10 +34,7 @@ class Cell
         else
             $this->content = $cell;
         
-        if ($type !== 'td' && $type !== 'th')
-            throw new \Exception("O tipo $type de Célula não existe");
-        else
-            $this->type = $type; 
+        $this->tag = $elements->get($tag) ;
     }
     
     /*
@@ -54,9 +44,7 @@ class Cell
     {
         $attrs = implode(' ', $this->attrs);
         
-        $type = $this->type;
-        
-        $this->HTML = sprintf($this->$type, $attrs, $this->content);
+        $this->HTML = sprintf($this->tag, $attrs, $this->content);
     }
     
     /*

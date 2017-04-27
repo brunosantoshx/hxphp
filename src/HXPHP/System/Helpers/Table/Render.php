@@ -33,7 +33,7 @@ class Render
         
         $header = $this->table->getHeader();
         $header = implode('', $header);
-        $header = sprintf($this->table->tag_thead, $attrs, $header);
+        $header = sprintf($this->table->elements->get('tag_thead'), $attrs, $header);
         return $header;
     }
     
@@ -47,7 +47,7 @@ class Render
         
         $rows = $this->table->getRows();
         $rows = implode('', $rows);
-        $rows = sprintf($this->table->tag_tbody, $attrs, $rows);
+        $rows = sprintf($this->table->elements->get('tag_tbody'), $attrs, $rows);
         return $rows;
     }
     
@@ -61,7 +61,7 @@ class Render
         
         $footer = $this->table->getFooter();
         $footer = implode('', $footer);
-        $footer = sprintf($this->table->tag_tfoot, $attrs, $footer);
+        $footer = sprintf($this->table->elements->get('tag_tfoot'), $attrs, $footer);
         return $footer;
     }
     
@@ -78,7 +78,7 @@ class Render
         $body = $this->bodyRender();
         $footer = $this->footerRender();
         
-        $html = sprintf($this->table->tag_table, $table_attrs, $caption.$header.$body.$footer);
+        $html = sprintf($this->table->elements->get('tag_table'), $table_attrs, $caption.$header.$body.$footer);
         
         return $html;        
     }    

@@ -33,10 +33,15 @@ class Template
     public function get()
     {
         $template = $this->template_path . $this->template_file . '.json';
-        
+
         if (!file_exists($template))
             throw new \Exception("O template para a tabela nao foi localizado: $template", 1);
-
-        return json_decode(file_get_contents($template), true);
+        
+        $json = json_decode(file_get_contents($template), true);
+        
+        if (!$json)
+            throw new \Exception("Não foi possível obter o conteúdo do template $template. Verifique o código json.", 1);
+        
+        return $json;
     }
 }
