@@ -21,25 +21,25 @@ class Table
     private $caption_attrs = []; 
     
     //Tag da tabela com coringas
-    private $tag_table = '<table %s>%s</table>';
+//    private $tag_table = '<table %s>%s</table>';
     
     //Armazena os atributos da tag <table>
     private $table_attrs = [];
     
     //Tag do cabeçalho com coringas
-    private $tag_thead = '<thead %s>%s</thead>';
+//    private $tag_thead = '<thead %s>%s</thead>';
     
     //Armazena os atributos da tag <thead>
     private $thead_attrs = [];
     
     //Tag do corpo da tabela com coringas
-    private $tag_tbody = '<tbody %s>%s</tbody>';
+//    private $tag_tbody = '<tbody %s>%s</tbody>';
     
     //Armazena os atributos da tag <tbody>
     private $tbody_attrs = [];
     
     //Tag do rodapé com coringas
-    private $tag_tfoot = '<tfoot %s>%s</tfoot>';
+//    private $tag_tfoot = '<tfoot %s>%s</tfoot>';
     
     //Armazena os atributos da tag <tfoot>
     private $tfoot_attrs = [];

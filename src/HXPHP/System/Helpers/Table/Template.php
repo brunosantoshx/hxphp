@@ -28,7 +28,7 @@ class Template
     
     /**
      * Método resposnável pela obtenção do conteúdo do template
-     * @return new stdClass
+     * @return array
      */
     public function get()
     {
