@@ -5,9 +5,9 @@
     "tag_thead_row": "<tr %s>%s</tr>",
     "tag_thead_cell": "<th %s>%s</th>",
     "tag_tbody": "<tbody %s>%s</tbody>",
-    "tag_tbody_row": "<tr %s><input type='checkbox'>%s</tr>",
+    "tag_tbody_row": "<tr %s>%s</tr>",
     "tag_tbody_cell": "<td %s>%s</td>",
-    "tag_tfoot": "<tfooter %s>%s</tfooter>",
+    "tag_tfoot": "<tfoot %s>%s</tfoot>",
     "tag_tfoot_row": "<tr %s>%s</tr>",
     "tag_tfoot_cell": "<td %s>%s</td>"
 }

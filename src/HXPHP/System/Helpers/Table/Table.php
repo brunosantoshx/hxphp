@@ -136,7 +136,6 @@ class Table
         
         $attrs = implode($this->caption_attrs);
         
-        $this->caption = '<caption '.$attrs.'>'.$content.'</caption>';
         $this->caption = sprintf($this->elements->get('tag_caption'), $attrs, $content);
     }
     
@@ -176,6 +175,7 @@ class Table
     
     /**
     * Exibe o HTML com a tabela renderizada
+    * @return HTML da tabela
     */
     public function getTable(): string
     {
@@ -185,6 +185,7 @@ class Table
     
     /**
     * Exibe o HTML renderizado
+    * @return Tabela renderizada
     */
     public function __toString(): string
     {

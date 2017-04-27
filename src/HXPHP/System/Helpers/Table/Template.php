@@ -12,6 +12,10 @@ class Template
                 ->setTemplateFile($template_file);
     }
 
+    /**
+    * Seta o caminho da pasta do template
+    * @param $path Caminho da pasta do template
+    */
     public function setTemplatePath(string $path): self
     {
         $this->template_path = $path;
@@ -19,6 +23,10 @@ class Template
         return $this;
     }
 
+    /**
+    * Seta o nome do arquivo do template
+    * @param $file Nome do arquivo do template
+    */
     public function setTemplateFile(string $file): self
     {
         $this->template_file = $file;

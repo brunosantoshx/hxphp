@@ -11,6 +11,10 @@ class Elements
         $this->elements = $template_default->get();
     }
     
+    /**
+    * Seta o template e dá um merge com o template default
+    * @param $template Nome do template
+    */
     public function setTemplate(string $template)
     {
         $template = new Template($template);
@@ -21,6 +25,11 @@ class Elements
         $this->elements = array_merge($this->elements, $template->get());
     }
     
+    /**
+    * Retorna um elemento
+    * @param $element Nome do elemento
+    * @return string elemento
+    */
     public function get($element)
     {
         if (!$this->elements[$element])
