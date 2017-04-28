@@ -3,6 +3,8 @@ namespace HXPHP\System\Helpers\Table;
 
 class Table
 {
+    public $elements;
+    
     //Armazena as rows da tabela
     private $rows = [];
     
@@ -16,32 +18,27 @@ class Table
     private $caption;
     
     //Armazena os atributos da tag <caption>
-    private $caption_attrs = []; 
-    
-    //Tag da tabela com coringas
-    private $tag_table = '<table %s>%s</table>';
+    private $caption_attrs = [];
     
     //Armazena os atributos da tag <table>
     private $table_attrs = [];
     
-    //Tag do cabeçalho com coringas
-    private $tag_thead = '<thead %s>%s</thead>';
-    
     //Armazena os atributos da tag <thead>
     private $thead_attrs = [];
-    
-    //Tag do corpo da tabela com coringas
-    private $tag_tbody = '<tbody %s>%s</tbody>';
     
     //Armazena os atributos da tag <tbody>
     private $tbody_attrs = [];
     
-    //Tag do rodapé com coringas
-    private $tag_tfoot = '<tfoot %s>%s</tfoot>';
-    
     //Armazena os atributos da tag <tfoot>
     private $tfoot_attrs = [];
     
+    public function __construct($template = null)
+    {
+        $this->elements = new Elements;
+
+        if ($template)
+            $this->elements->setTemplate($template);
+    }    
     
     /**
     * Adiciona uma linha à tabela
@@ -50,10 +47,10 @@ class Table
     */
     public function addRow(array $cells, array $attrs = [])
     {
-        $row = new Row($attrs);
-        
+        $row = new Row($attrs, $this->elements, 'tag_tbody_row');
+
         foreach ($cells as $cell)
-            $row->addCell('td', $cell);
+            $row->addCell($cell, 'tag_tbody_cell');
         
         $this->rows[] = $row->getHTML();
     }
@@ -85,10 +82,10 @@ class Table
     */
     public function addHeader(array $cells, $attrs = [])
     {
-        $row = new Row($attrs);
+        $row = new Row($attrs, $this->elements, 'tag_thead_row');
         
         foreach ($cells as $cell)
-            $row->addCell('th', $cell);
+            $row->addCell($cell, 'tag_thead_cell');
         
         $this->header[] = $row->getHTML();
     }
@@ -109,10 +106,10 @@ class Table
     */
     public function addFooter(array $cells, $attrs = [])
     {
-        $row = new Row($attrs);
+        $row = new Row($attrs, $this->elements, 'tag_tfoot_row');
         
         foreach ($cells as $cell)
-            $row->addCell('th', $cell);
+            $row->addCell($cell, 'tag_tfoot_cell');
         
         $this->footer[] = $row->getHTML();
     }
@@ -139,14 +136,14 @@ class Table
         
         $attrs = implode($this->caption_attrs);
         
-        $this->caption = '<caption '.$attrs.'>'.$content.'</caption>';
+        $this->caption = sprintf($this->elements->get('tag_caption'), $attrs, $content);
     }
     
     /**
     * Captura o conteúdo de Caption
     * @return array Conteúdo e atributos da tag caption
     */
-    public function getCaption(): string
+    public function getCaption()
     {
         return $this->caption;
     }
@@ -178,6 +175,7 @@ class Table
     
     /**
     * Exibe o HTML com a tabela renderizada
+    * @return HTML da tabela
     */
     public function getTable(): string
     {
@@ -187,6 +185,7 @@ class Table
     
     /**
     * Exibe o HTML renderizado
+    * @return Tabela renderizada
     */
     public function __toString(): string
     {
