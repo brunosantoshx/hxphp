@@ -4,7 +4,9 @@ $configs = new HXPHP\System\Configs\Config;
 
 $configs->env->add('development');
 
-$configs->env->development->mail->setSMTP([]);
+$configs->env->development->mail->setSMTP([
+    'Port' => 587
+]);
 
 /*
   //Globais

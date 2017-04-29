@@ -6,19 +6,19 @@ class Mail
     public $from;
     public $from_mail;
 
-    /**
-     * SMTP Credentials
-     * @var string
-     */
-    public $Host;
-    public $SMTPAuth;
-    public $Username;
-    public $Password;
-    public $SMTPSecure;
-    public $Port;
+    private $SMTP_configs = [];
 
     public function __construct()
     {
+        $this->SMTP_configs = [
+            'Host'       => null,
+            'SMTPAuth'   => null,
+            'Password'   => null,
+            'Username'   => null,
+            'SMTPSecure' => null,
+            'Port'       => null
+        ];
+
         $this->setFrom([
             'from' => 'HXPHP Framework',
             'from_mail' => 'no-reply@hxphp.com.br'
@@ -37,13 +37,8 @@ class Mail
     {
         if (!class_exists('PHPMailer'))
             throw new \Exception("Adicione o PHPMailer ao seu projeto com o comando: composer require phpmailer/phpmailer.", 1);
-            
-        $this->Host = $data['Host'];
-        $this->SMTPAuth = $data['SMTPAuth'];
-        $this->Password = $data['Password'];
-        $this->Username = $data['Username'];
-        $this->SMTPSecure = $data['SMTPSecure'];
-        $this->Port = $data['Port'];
+
+        $this->SMTP_configs = array_merge($this->SMTP_configs, $data);
 
         return $this;
     }
