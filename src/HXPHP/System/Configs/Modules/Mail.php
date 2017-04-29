@@ -55,4 +55,9 @@ class Mail
             'from_name' => $this->from
         ];
     }
+
+    public function getSMTP(): array
+    {
+        return $this->SMTP_configs;
+    }
 }
