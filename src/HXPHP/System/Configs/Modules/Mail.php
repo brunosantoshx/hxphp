@@ -38,6 +38,11 @@ class Mail
         if (!class_exists('PHPMailer'))
             throw new \Exception("Adicione o PHPMailer ao seu projeto com o comando: composer require phpmailer/phpmailer.", 1);
 
+        $indexes = array_keys($data);
+        $indexes = array_map('ucfirst', $indexes);
+
+        $data = array_combine($indexes, $data);
+
         $this->SMTP_configs = array_merge($this->SMTP_configs, $data);
 
         return $this;
