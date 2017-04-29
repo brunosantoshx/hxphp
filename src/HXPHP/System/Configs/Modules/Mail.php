@@ -6,6 +6,16 @@ class Mail
     public $from;
     public $from_mail;
 
+    /**
+     * SMTP Credentials
+     * @var string
+     */
+    public $Host;
+    public $SMTPAuth;
+    public $Username;
+    public $SMTPSecure;
+    public $Port;
+
     public function __construct()
     {
         $this->setFrom([
@@ -18,6 +28,12 @@ class Mail
     {
         $this->from = $data['from'];
         $this->from_mail = $data['from_mail'];
+
+        return $this;
+    }
+
+    public function setSMTP(array $data): self
+    {
 
         return $this;
     }
