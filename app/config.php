@@ -4,6 +4,8 @@ $configs = new HXPHP\System\Configs\Config;
 
 $configs->env->add('development');
 
+$configs->env->development->mail->setSMTP([]);
+
 /*
   //Globais
   $configs->title = 'Titulo customizado';

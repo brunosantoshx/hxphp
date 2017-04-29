@@ -13,6 +13,7 @@ class Mail
     public $Host;
     public $SMTPAuth;
     public $Username;
+    public $Password;
     public $SMTPSecure;
     public $Port;
 
@@ -34,6 +35,15 @@ class Mail
 
     public function setSMTP(array $data): self
     {
+        if (!class_exists('PHPMailer'))
+            throw new \Exception("Adicione o PHPMailer ao seu projeto com o comando: composer require phpmailer/phpmailer.", 1);
+            
+        $this->Host = $data['Host'];
+        $this->SMTPAuth = $data['SMTPAuth'];
+        $this->Password = $data['Password'];
+        $this->Username = $data['Username'];
+        $this->SMTPSecure = $data['SMTPSecure'];
+        $this->Port = $data['Port'];
 
         return $this;
     }
