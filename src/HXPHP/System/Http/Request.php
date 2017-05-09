@@ -119,7 +119,7 @@ class Request
 
         if (!$name) {
             foreach ($get as $field => $value)
-                $get[$field] = trim($value);
+                $get[$field] = is_array($value) ? array_map('trim', $value) : trim($value);
 
             return $get;
         }
@@ -141,7 +141,7 @@ class Request
 
         if (!$name) {
             foreach ($post as $field => $value)
-                $post[$field] = trim($value);
+                $post[$field] = is_array($value) ? array_map('trim', $value) : trim($value);
 
             return $post;
         }
