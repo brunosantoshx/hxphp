@@ -4,7 +4,7 @@
     "type": "project",
     "homepage": "http://www.hxphp.com.br/",
     "keywords": ["framework", "hxphp"],
-    "license": "MIT",    
+    "license": "MIT",
     "require": {
         "php": ">=7.0.0",
         "php-activerecord/php-activerecord": "dev-master"
@@ -23,7 +23,7 @@
     ],
     "support": {
         "issues": "https://github.com/brunosantoshx/hxphp/issues",
-        "wiki": "https://github.com/brunosantoshx/hxphp-docs",
+        "wiki": "https://github.com/brunosantoshx/hxphp-docs"
     },
     "autoload": {
         "psr-4":{
@@ -32,7 +32,7 @@
     },
     "config": {
         "preferred-install": "dist",
-        "discard-changes": "stash",        
+        "discard-changes": "stash",
         "optimize-autoloader": true
     }
 }
