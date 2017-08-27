@@ -1,0 +1,13 @@
+{
+    "tag_table": "<table %s>%s</table>",
+    "tag_caption": "<caption %s>%s</caption>",
+    "tag_thead": "<thead %s>%s</thead>",
+    "tag_thead_row": "<tr %s>%s</tr>",
+    "tag_thead_cell": "<th %s>%s</th>",
+    "tag_tbody": "<tbody %s>%s</tbody>",
+    "tag_tbody_row": "<tr %s>%s</tr>",
+    "tag_tbody_cell": "<td %s>%s</td>",
+    "tag_tfoot": "<tfoot %s>%s</tfoot>",
+    "tag_tfoot_row": "<tr %s>%s</tr>",
+    "tag_tfoot_cell": "<td %s>%s</td>"
+}

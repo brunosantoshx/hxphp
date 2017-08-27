@@ -34,8 +34,6 @@ class App
         $this->configs = $configs;
         $this->request = new Http\Request($configs->baseURI, $configs->global->controllers->directory);
         $this->response = new Http\Response;
-
-        return $this;
     }
 
     /**

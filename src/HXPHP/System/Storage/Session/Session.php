@@ -11,10 +11,10 @@ class Session implements \HXPHP\System\Storage\StorageInterface
     /**
      * Método que cria uma sessão
      * @param string $name  Nome da sessão
-     * @param string $value Conteúdo da sessão
+     * @param mixed $value Conteúdo da sessão
      * @param int $timeout  Tempo de expiração da sessão
      */
-    public function set(string $name, string $value, int $timeout = null): self
+    public function set(string $name, $value, int $timeout = null): self
     {
         $_SESSION[self::PREFIX][$name] = $value;
 

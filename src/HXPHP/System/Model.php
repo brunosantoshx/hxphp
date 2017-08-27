@@ -13,7 +13,5 @@ class Model extends \ActiveRecord\Model
     public function __construct(array $attributes = [], bool $guard_attributes = true, bool $instantiating_via_find = false, bool $new_record = true)
     {
         parent::__construct($attributes, $guard_attributes, $instantiating_via_find, $new_record);
-
-        return $this;
     }
 }

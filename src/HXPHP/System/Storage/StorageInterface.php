@@ -9,7 +9,7 @@ interface StorageInterface
      * @param string $name  Nome do indice para o valor
      * @param $this
      */
-    public function set(string $name, string $value);
+    public function set(string $name, $value);
     /**
      * Usar para resgatar um valor no storage
      *

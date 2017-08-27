@@ -13,7 +13,5 @@ class RegisterModules
             'menu',
             'auth'
         ];
-
-        return $this;
     }
 }
