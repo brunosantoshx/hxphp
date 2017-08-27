@@ -29,8 +29,13 @@
         "wiki": "https://github.com/brunosantoshx/hxphp-docs"
     },
     "autoload": {
-        "psr-4":{
+        "psr-4": {
             "HXPHP\\": "src/HXPHP"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/HXPHP"
         }
     },
     "config": {
