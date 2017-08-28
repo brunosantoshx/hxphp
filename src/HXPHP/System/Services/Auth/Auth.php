@@ -49,8 +49,6 @@ class Auth
         $this->redirect = $redirect;
 
         $this->subfolder = $subfolder;
-
-        return $this;
     }
 
     /**
@@ -132,9 +130,11 @@ class Auth
                 $this->storage->exists($this->subfolder . '_username') &&
                 $this->storage->exists($this->subfolder . '_login_string')) {
 
+            $IP = is_null($this->request->server('HTTP_X_FORWARDED_FOR')) ? $this->request->server('REMOTE_ADDR') : $this->request->server('HTTP_X_FORWARDED_FOR');
+
             $login_string = hash('sha512', $this->storage->get($this->subfolder . '_username')
-                    . $this->request->server('REMOTE_ADDR')
-                    . $this->request->server('HTTP_USER_AGENT'));
+                                             . $IP
+                                             . $this->request->server('HTTP_USER_AGENT'));
 
             if ($login_string == $this->storage->get($this->subfolder . '_login_string'))
                 return true;

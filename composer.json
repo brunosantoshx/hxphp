@@ -1,28 +1,46 @@
 {
-    "name": "Bruno/hxphp",
+    "name": "hxphp/hxphp",
+    "description": "HXPHP - O seu primeiro framework.",
+    "type": "project",
+    "homepage": "http://www.hxphp.com.br/",
+    "keywords": ["framework", "hxphp"],
+    "license": "MIT",
     "require": {
+        "php": ">=7.0.0",
         "php-activerecord/php-activerecord": "dev-master"
     },
     "require-dev": {
-        "phpunit/phpunit": "6.1.0"
+        "phpunit/phpunit": "^6.2"
     },
     "authors": [
         {
             "name": "Bruno Campos Santos",
-            "email": "bruno@hxphp.com.br"
+            "email": "bruno@hxphp.com.br",
+            "role": "Developer"
         },
         {
             "name": "Gilglécio Santos",
-            "email": "gilglecio@hxphp.com.br"
+            "email": "gilglecio@hxphp.com.br",
+            "role": "Developer"
         }
     ],
+    "support": {
+        "issues": "https://github.com/brunosantoshx/hxphp/issues",
+        "wiki": "https://github.com/brunosantoshx/hxphp-docs"
+    },
     "autoload": {
-        "psr-0": {
-            "": ["src/"]
+        "psr-4": {
+            "HXPHP\\": "src/HXPHP"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/HXPHP"
         }
     },
     "config": {
-        "discard-changes": "stash",    
-        "preferred-install": "dist"    
-    },
+        "preferred-install": "dist",
+        "discard-changes": "stash",
+        "optimize-autoloader": true
+    }
 }

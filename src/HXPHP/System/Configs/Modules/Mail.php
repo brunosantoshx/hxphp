@@ -12,7 +12,6 @@ class Mail
             'from' => 'HXPHP Framework',
             'from_mail' => 'no-reply@hxphp.com.br'
         ]);
-        return $this;
     }
 
     public function setFrom(array $data): self

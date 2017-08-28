@@ -27,7 +27,6 @@ class Request
     {
         $this->subfolder = 'default';
         $this->initialize($baseURI, $controller_directory);
-        return $this;
     }
 
     /**
@@ -120,7 +119,7 @@ class Request
 
         if (!$name) {
             foreach ($get as $field => $value)
-                $get[$field] = trim($value);
+                $get[$field] = is_array($value) ? array_map('trim', $value) : trim($value);
 
             return $get;
         }
@@ -142,7 +141,7 @@ class Request
 
         if (!$name) {
             foreach ($post as $field => $value)
-                $post[$field] = trim($value);
+                $post[$field] = is_array($value) ? array_map('trim', $value) : trim($value);
 
             return $post;
         }
@@ -168,8 +167,11 @@ class Request
         if (!isset($server[$name]) && !isset($_SERVER[$name]))
             return null;
 
-        if (isset($_SERVER[$name]))
+        if (is_null($server[$name]))
             return $_SERVER[$name];
+
+        if (!isset($server[$name]))
+            return null;
 
         return $server[$name];
     }
