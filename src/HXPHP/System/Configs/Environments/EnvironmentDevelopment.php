@@ -12,7 +12,8 @@ class EnvironmentDevelopment extends Configs\AbstractEnvironment
         parent::__construct();
         $this->servers = [
             'localhost',
-            '127.0.0.1'
+            '127.0.0.1',
+            '::1'
         ];
     }
 }
