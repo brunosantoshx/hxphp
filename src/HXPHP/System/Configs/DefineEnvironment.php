@@ -8,9 +8,10 @@ class DefineEnvironment
     public function __construct()
     {
         $server_name = $_SERVER['SERVER_NAME'];
+        $server_addr = $_SERVER['SERVER_ADDR'];
         $development = new Environments\EnvironmentDevelopment;
 
-        (in_array($server_name, $development->servers)) ?
+        (in_array($server_addr || $server_name, $development->servers)) ?
                         $this->currentEnviroment = 'development' :
                         $this->currentEnviroment = 'production';
 
