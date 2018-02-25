@@ -3,11 +3,11 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /hxphp/
+    RewriteBase /
     RewriteRule ^index\.php$ - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule . /hxphp/index.php [L]
+    RewriteRule . /index.php [L]
 </IfModule>
 
 <Files ~ "^\.(htaccess|htpasswd)$">
