@@ -9,6 +9,8 @@ php:
   - 7.1
   - 7.2
 
+composer install
+
 script: phpunit
 
 notifications:
