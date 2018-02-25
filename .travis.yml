@@ -3,6 +3,9 @@ sudo: true
 services:
   - mysql
 
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS hxphp;'
+
 language: php
 
 dist: trusty
@@ -12,9 +15,9 @@ php:
   - 7.1
   - 7.2
 
-composer install
-
-script: phpunit
+script: 
+  - composer install
+  - phpunit
 
 notifications:
   email:
