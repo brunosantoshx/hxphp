@@ -5,24 +5,24 @@ ActiveRecord\Connection::$datetime_format = 'Y-m-d H:i:s';
 
 $configs->env->add('development');
 
-//Globais
-$configs->title = 'HXPHP Framework';
-
-//Configurações de Ambiente - Desenvolvimento
-$configs->env->add('development');
-
-$configs->env->development->baseURI = '/hxphp/';
-
-$configs->env->development->database->setConnectionData([
-  'driver' => 'mysql',
-  'host' => 'localhost',
-  'user' => 'root',
-  'password' => '',
-  'dbname' => 'hxphp',
-  'charset' => 'utf8'
-]);
 
 /*
+  //Globais
+  $configs->title = 'Titulo customizado';
+
+  //Configurações de Ambiente - Desenvolvimento
+  $configs->env->add('development');
+
+  $configs->env->development->baseURI = '/hxphp/';
+
+  $configs->env->development->database->setConnectionData([
+    'driver' => 'mysql',
+    'host' => 'localhost',
+    'user' => 'root',
+    'password' => '',
+    'dbname' => 'hxphp',
+    'charset' => 'utf8'
+  ]);
 
   $configs->env->development->mail->setFrom([
     'from' => 'Remetente',
@@ -38,8 +38,8 @@ $configs->env->development->database->setConnectionData([
   $configs->env->development->menu->setMenus([
     'Home/home' => '%siteURL%',
     'Subpasta/folder-open' => [
-    'Home/home' => '%baseURI%/admin/have-fun/',
-    'Teste/home' => '%baseURI%/admin/index/',
+      'Home/home' => '%baseURI%/admin/have-fun/',
+      'Teste/home' => '%baseURI%/admin/index/',
     ]
   ]);
 
@@ -52,17 +52,17 @@ $configs->env->development->database->setConnectionData([
   $configs->env->production->baseURI = '/';
 
   $configs->env->production->database->setConnectionData([
-  'driver' => 'mysql',
-  'host' => 'localhost',
-  'user' => 'usuariodobanco',
-  'password' => 'senhadobanco',
-  'dbname' => 'hxphp',
-  'charset' => 'utf8'
+    'driver' => 'mysql',
+    'host' => 'localhost',
+    'user' => 'usuariodobanco',
+    'password' => 'senhadobanco',
+    'dbname' => 'hxphp',
+    'charset' => 'utf8'
   ]);
 
   $configs->env->production->mail->setFrom([
-  'from' => 'Remetente',
-  'from_mail' => 'email@remetente.com.br'
+    'from' => 'Remetente',
+    'from_mail' => 'email@remetente.com.br'
   ]);
  */
 
