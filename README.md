@@ -1,6 +1,6 @@
 # HXPHP Framework
 
-[![Build Status](https://travis-ci.org/HXPHP/hxphp.svg?branch=master)](https://travis-ci.org/HXPHP/hxphp)
+[![Build Status](https://travis-ci.org/HXPHP/framework.svg?branch=master)](https://travis-ci.org/HXPHP/framework)
 [![Coverage Status](https://coveralls.io/repos/github/hxphp/framework/badge.svg?branch=master)](https://coveralls.io/github/hxphp/framework?branch=master)
 [![Total Downloads](https://poser.pugx.org/hxphp/framework/downloads)](https://packagist.org/packages/hxphp/framework)
 [![Latest Stable Version](https://poser.pugx.org/hxphp/framework/v/stable)](https://packagist.org/packages/hxphp/framework)
