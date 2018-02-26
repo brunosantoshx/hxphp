@@ -1,7 +1,7 @@
 <?php
 namespace HXPHP\System\Configs;
 
-class Config
+class Config extends Bootstrap
 {
     public $global;
     public $env;
@@ -9,6 +9,8 @@ class Config
 
     public function __construct()
     {
+        parent::__construct();
+        
         $this->global = new GlobalConfig;
         $this->env = new Environment;
         $this->define = new DefineEnvironment;
