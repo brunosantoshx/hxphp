@@ -24,7 +24,6 @@ abstract class BaseTestCase extends TestCase
 	private function createConfigs()
 	{
 		$this->configs = new Config;
-		$this->configs->env->add('tests');
 
 		return $this;
 	}
