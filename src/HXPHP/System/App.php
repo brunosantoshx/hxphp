@@ -53,6 +53,8 @@ class App
                     . '?charset=' . $this->configs->database->charset
                 ]
         );
+
+        return $cfg;
     }
 
     /**
