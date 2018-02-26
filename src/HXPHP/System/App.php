@@ -64,7 +64,7 @@ class App
          * Variáveis
          */
         $subfolder = $this->request->subfolder === 'default' ? '' :
-                $this->request->subfolder DIRECTORY_SEPARATOR;
+                $this->request->subfolder . DIRECTORY_SEPARATOR;
         $controller = $this->request->controller;
         $action = $this->request->action;
         $controllersDir = $this->configs->controllers->directory;

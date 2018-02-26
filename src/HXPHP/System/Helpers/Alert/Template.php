@@ -8,7 +8,7 @@ class Template
 
     public function __construct()
     {
-        $this->setTemplatePath(TEMPLATES_PATH . 'Helpers' DIRECTORY_SEPARATOR . 'Alert' DIRECTORY_SEPARATOR)
+        $this->setTemplatePath(getenv('TEMPLATES_PATH') . 'Helpers' . DIRECTORY_SEPARATOR . 'Alert' . DIRECTORY_SEPARATOR)
                 ->setTemplateFile('alert');
     }
 
