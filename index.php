@@ -7,6 +7,10 @@ set_time_limit(0);
 date_default_timezone_set('America/Sao_Paulo');
 setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 
+if (!defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__FILE__));
+}
+
 define('APP_PATH', 'app' . DIRECTORY_SEPARATOR);
 
 /**
@@ -45,3 +49,4 @@ HXPHP\System\Services\StartSession\StartSession::sec_session_start();
 $app = new HXPHP\System\App(require_once APP_PATH . 'config.php');
 $app->ActiveRecord();
 $app->run();
+

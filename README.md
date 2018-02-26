@@ -1,6 +1,13 @@
 # HXPHP Framework
 
-[![Build Status](https://travis-ci.org/brunosantoshx/hxphp.svg?branch=master)](https://travis-ci.org/brunosantoshx/hxphp)
+[![Build Status](https://travis-ci.org/HXPHP/hxphp.svg?branch=master)](https://travis-ci.org/HXPHP/hxphp)
+[![Coverage Status](https://coveralls.io/repos/github/hxphp/framework/badge.svg?branch=master)](https://coveralls.io/github/hxphp/framework?branch=master)
+[![Total Downloads](https://poser.pugx.org/hxphp/framework/downloads)](https://packagist.org/packages/hxphp/framework)
+[![Latest Stable Version](https://poser.pugx.org/hxphp/framework/v/stable)](https://packagist.org/packages/hxphp/framework)
+[![Latest Unstable Version](https://poser.pugx.org/hxphp/framework/v/unstable)](https://packagist.org/packages/hxphp/framework)
+[![License](https://poser.pugx.org/hxphp/framework/license)](https://packagist.org/packages/hxphp/framework)
+
+
 
 O HXPHP é um mini-framework PHP.
 
@@ -17,4 +24,4 @@ Lembre-se também que antes de estudar um framework é mais do que recomendado, 
 
 #### Link para documentação:
 ---------------------------------------------------------------------
-[https://github.com/brunosantoshx/hxphp-docs](https://github.com/brunosantoshx/hxphp-docs).
+[https://github.com/hxphp/docs](https://github.com/hxphp/docs).
