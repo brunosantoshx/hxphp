@@ -7,16 +7,18 @@ set_time_limit(0);
 date_default_timezone_set('America/Sao_Paulo');
 setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 
+define('DS', DIRECTORY_SEPARATOR);
+
 if (!defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__FILE__));
 }
 
-define('APP_PATH', 'app' . DIRECTORY_SEPARATOR);
+define('APP_PATH', 'app' . DS);
 
 /**
  * Verifica se o autoload do Composer está configurado
  */
-$composer_autoload = 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+$composer_autoload = 'vendor' . DS . 'autoload.php';
 
 if (!file_exists($composer_autoload))
     die('Execute o comando: composer install');
