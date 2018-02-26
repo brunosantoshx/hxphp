@@ -18,7 +18,7 @@ class Tools
 
     public static function getTemplatePath(string $component, string $name, string $templateFile)
     {
-        $templatePath = TEMPLATES_PATH . $component . DS . $name . DS . $templateFile;
+        $templatePath = TEMPLATES_PATH . $component DIRECTORY_SEPARATOR . $name DIRECTORY_SEPARATOR . $templateFile;
 
         if (!file_exists($templatePath))
             throw new \Exception("O template nao foi localizado: <'$templatePath'>", 1);

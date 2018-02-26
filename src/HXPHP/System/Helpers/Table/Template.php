@@ -8,7 +8,7 @@ class Template
     
     public function __construct(string $template_file)
     {
-        $this->setTemplatePath(TEMPLATES_PATH . 'Helpers' . DS . 'Table' . DS)
+        $this->setTemplatePath(TEMPLATES_PATH . 'Helpers' DIRECTORY_SEPARATOR . 'Table' DIRECTORY_SEPARATOR)
                 ->setTemplateFile($template_file);
     }
 

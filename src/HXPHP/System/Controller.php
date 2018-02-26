@@ -134,7 +134,7 @@ class Controller
      */
     public function getRelativeURL(string $URL, bool $controller = true): string
     {
-        $path = $controller === true ? $this->view->path . DS : $this->view->subfolder;
+        $path = $controller === true ? $this->view->path DIRECTORY_SEPARATOR : $this->view->subfolder;
 
         return $this->configs->baseURI . $path . $URL;
     }

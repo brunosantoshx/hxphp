@@ -28,14 +28,14 @@ class GlobalConfig
         $this->site->url = $this->site->protocol . '://' . $this->site->host;
 
         //Models
-        $this->models->directory = APP_PATH . 'models' . DS;
+        $this->models->directory = APP_PATH . 'models' DIRECTORY_SEPARATOR;
 
         //Views
-        $this->views->directory = APP_PATH . 'views' . DS;
+        $this->views->directory = APP_PATH . 'views' DIRECTORY_SEPARATOR;
         $this->views->extension = '.phtml';
 
         //Controller
-        $this->controllers->directory = APP_PATH . 'controllers' . DS;
+        $this->controllers->directory = APP_PATH . 'controllers' DIRECTORY_SEPARATOR;
         $this->controllers->notFound = 'Error404Controller';
 
         //General

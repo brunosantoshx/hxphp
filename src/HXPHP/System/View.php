@@ -103,7 +103,7 @@ class View
 
         $partialsDir = $overwrite === false ? $this->subfolder . $partialsDir : $partialsDir;
 
-        $this->partialsDir = $viewsDir . $partialsDir . DS;
+        $this->partialsDir = $viewsDir . $partialsDir DIRECTORY_SEPARATOR;
         return $this;
     }
 
@@ -264,7 +264,7 @@ class View
         define('JS', $baseURI . 'public/js/');
 
         //Verifica a existência da VIEW
-        $view = $viewsDir . $this->path . DS . $this->file . $viewsExt;
+        $view = $viewsDir . $this->path DIRECTORY_SEPARATOR . $this->file . $viewsExt;
 
         if (!file_exists($view))
             throw new \Exception("Erro fatal: A view <'$view'> não foi encontrada. Por favor, crie a view e tente novamente.", 1);
@@ -308,14 +308,14 @@ class View
 
     public function getRelativeURL(string $URL, bool $controller = true): string
     {
-        $path = $controller === true ? $this->path . DS : $this->subfolder;
+        $path = $controller === true ? $this->path DIRECTORY_SEPARATOR : $this->subfolder;
 
         return $this->configs->baseURI . $path . $URL;
     }
 
     public function printRelativeURL(string $URL, bool $controller = true)
     {
-        $path = $controller === true ? $this->path . DS : $this->subfolder;
+        $path = $controller === true ? $this->path DIRECTORY_SEPARATOR : $this->subfolder;
 
         echo $this->configs->baseURI . $path . $URL;
     }
