@@ -22,7 +22,7 @@ $composer_autoload = 'vendor' . DS . 'autoload.php';
 if (!file_exists($composer_autoload))
     die('Execute o comando: composer install');
 
-if (version_compare(PHP_VERSION, '7.1.0', '<')) {
+if (version_compare(PHP_VERSION, '7.0.0', '<')) {
     die('
     	<h2>
     		O suporte ao PHP 5 terminou e o reposit&oacute;rio agora encontra-se 
