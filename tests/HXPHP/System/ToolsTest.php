@@ -1,5 +1,4 @@
 <?php
-
 namespace Tests\System;
 
 use HXPHP\System\Tools;

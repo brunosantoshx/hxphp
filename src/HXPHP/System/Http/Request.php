@@ -35,7 +35,9 @@ class Request
      */
     public function initialize(string $baseURI, string $controller_directory)
     {
-        if (!empty($baseURI) && !empty($controller_directory)) {
+        if (!empty($baseURI) 
+            && !empty($controller_directory) && array_key_exists('REQUEST_URI', $_SERVER)) {
+            
             $explode = array_values(array_filter(explode('/', $_SERVER['REQUEST_URI'])));
 
             $baseURICount = count(array_filter(explode('/', $baseURI)));

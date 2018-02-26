@@ -3,7 +3,7 @@ namespace HXPHP\System\Configs\Environments;
 
 use HXPHP\System\Configs;
 
-class EnvironmentTests extends Configs\AbstractEnvironment
+class Tests extends Configs\AbstractEnvironment
 {
     public function __construct()
     {

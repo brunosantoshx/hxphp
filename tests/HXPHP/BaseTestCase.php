@@ -1,5 +1,4 @@
 <?php
-
 namespace Tests;
 
 use HXPHP\System\App;
@@ -25,8 +24,7 @@ abstract class BaseTestCase extends TestCase
 	private function createConfigs()
 	{
 		$this->configs = new Config;
-		$this->configs->env->add('development');
-		$this->configs->env->development->baseURI = $this->baseURI;
+		$this->configs->env->add('tests');
 
 		return $this;
 	}

@@ -1,9 +1,9 @@
 <?php
 namespace HXPHP\System\Configs\Environments;
 
-use HXPHP\System\Configs;
+use HXPHP\System\Configs\AbstractEnvironment;
 
-class EnvironmentDevelopment extends Configs\AbstractEnvironment
+class Development extends AbstractEnvironment
 {
     public $servers;
 

@@ -11,6 +11,8 @@ class Environment
     {
         $define = new DefineEnvironment;
         $this->defaultEnvironment = $define->getDefault();
+
+        $this->add();
     }
 
     public function add(string $environment = null)
@@ -19,7 +21,7 @@ class Environment
             $environment = $this->defaultEnvironment;
 
         $name = strtolower(Tools::filteredName($environment));
-        $object = 'HXPHP\System\Configs\Environments\Environment' . ucfirst(Tools::filteredName($environment));
+        $object = 'HXPHP\System\Configs\Environments\\' . ucfirst(Tools::filteredName($environment));
 
         if (!class_exists($object))
             throw new \Exception('O ambiente informado nao esta definido nas configuracoes do sistema.');
