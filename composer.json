@@ -7,6 +7,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.0.0",
+        "symfony/http-foundation": "^4.0",
         "hxphp/framework": "dev-master"
     },
     "authors": [
