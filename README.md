@@ -13,7 +13,9 @@
 
 ----
 
-O [HXPHP][1] não foi desenvolvido para ser o **framework perfeito**, nem o **framework do código lindo** e sim, na verdade, ser o **framework de iniciação** dos programadores PHP. Trata-se de uma ferramenta simples que tem o objetivo  de apresentar o universo dos frameworks com um primeiro contato fácil e produtivo. E, para isso, em poucas horas o programador já é capaz de criar diversas soluções; fator este mais do que estimulante.
+O [HXPHP][1] não é concorrente do Zend ou do Laravel. É simples, prático e fácil. Perfeito para um próximo passo :)
+
+O objetivo é que o HXPHP se torne o **framework de iniciação** dos programadores PHP. Portanto, trata-se de uma ferramenta simples que apresenta o universo dos frameworks com um primeiro contato fácil e produtivo. E em poucas horas o programador já é capaz de criar uma aplicação.
 
 ----
 
