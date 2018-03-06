@@ -15,7 +15,7 @@
 
 O [HXPHP][1] não é concorrente do Zend ou do Laravel. É simples, prático e fácil. Perfeito para um próximo passo :)
 
-O objetivo é que o HXPHP se torne o **framework de iniciação** dos programadores PHP. Portanto, trata-se de uma ferramenta simples que apresenta o universo dos frameworks com um primeiro contato fácil e produtivo. E em poucas horas o programador já é capaz de criar uma aplicação.
+O objetivo é que o HXPHP se torne o **framework de iniciação** dos programadores PHP. Portanto, trata-se de uma ferramenta simples que apresenta o universo dos frameworks com um primeiro contato fácil e produtivo. E em poucos minutos o programador já é capaz de criar uma aplicação.
 
 ----
 
