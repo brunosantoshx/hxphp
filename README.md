@@ -6,6 +6,7 @@
 
 [![Build Status](https://travis-ci.org/hxphp/framework.svg?branch=master)](https://travis-ci.org/hxphp/framework)
 [![Coverage Status](https://coveralls.io/repos/github/hxphp/framework/badge.svg?branch=master)](https://coveralls.io/github/hxphp/framework?branch=master)
+[![StyleCI](https://styleci.io/repos/122897170/shield?branch=master)](https://styleci.io/repos/122897170)
 [![Total Downloads](https://poser.pugx.org/hxphp/framework/downloads)](https://packagist.org/packages/hxphp/framework)
 [![Latest Stable Version](https://poser.pugx.org/hxphp/framework/v/stable)](https://packagist.org/packages/hxphp/framework)
 [![Latest Unstable Version](https://poser.pugx.org/hxphp/framework/v/unstable)](https://packagist.org/packages/hxphp/framework)
