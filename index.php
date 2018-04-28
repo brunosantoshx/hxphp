@@ -35,7 +35,16 @@ require_once($composer_autoload);
 HXPHP\System\Services\StartSession\StartSession::sec_session_start();
 
 //Inicio da aplicação
-$app = new HXPHP\System\App(require_once APP_PATH . 'config.php');
+$config = require_once APP_PATH . 'config.php';
+
+$loader = \HXPHP\System\Loader::getInstance();
+$loader->addLoadedInstance('Loader',[
+    'name' => 'loader',
+    'object' => $loader
+]);
+$loader->addLoadedInstance('Config',['object' => $config]);
+
+$app = new HXPHP\System\App($config, $loader);
 $app->ActiveRecord();
 $app->run();
 
