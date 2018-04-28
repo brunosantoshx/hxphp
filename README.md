@@ -41,11 +41,11 @@ O objetivo é que o HXPHP se torne o **framework de iniciação** dos programado
 
 #### PHP 5.x
 
-[https://github.com/hxphp/docs][6]
+[https://hxphp.github.io/docs/2.0/][6]
 
 #### PHP 7.x
 
-[https://github.com/hxphp/docs][7]
+[https://hxphp.github.io/docs/3.0/][7]
 
 
 [1]: http://www.hxphp.com.br
@@ -53,5 +53,5 @@ O objetivo é que o HXPHP se torne o **framework de iniciação** dos programado
 [3]: http://dev.mysql.com/downloads/mysql/
 [4]: https://httpd.apache.org/download.cgi
 [5]: https://getcomposer.org/download/
-[6]: https://github.com/hxphp/docs/tree/2.0.0
-[7]: https://github.com/hxphp/docs
+[6]: https://hxphp.github.io/docs/2.0/
+[7]: https://hxphp.github.io/docs/3.0/
