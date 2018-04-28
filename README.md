@@ -24,7 +24,7 @@ O objetivo é que o HXPHP se torne o **framework de iniciação** dos programado
 
 #### Requisitos
 
-+ [PHP 5.4+][2]
++ [PHP 7.0+][2]
 + [MySql 5.5+][3]
 + [Apache][4]
 + [Composer][5]
