@@ -1,26 +1,24 @@
 <?php
-//Constantes
-$configs = new HXPHP\System\Configs\Config;
-ActiveRecord\Connection::$datetime_format = 'Y-m-d H:i:s';
+  $configs = new HXPHP\System\Configs\Config;
+  ActiveRecord\Connection::$datetime_format = 'Y-m-d H:i:s';
 
-
-/*
   //Globais
-  $configs->title = 'Titulo customizado';
+  $configs->title = 'HXPHP Framework';
 
   //Configurações de Ambiente - Desenvolvimento
   $configs->env->add('development');
 
-  $configs->env->development->baseURI = '/hxphp/';
+  $configs->env->development->baseURI = '/';
 
   $configs->env->development->database->setConnectionData([
     'driver' => 'mysql',
     'host' => 'localhost',
     'user' => 'root',
-    'password' => '',
+    'password' => 'secret',
     'dbname' => 'hxphp',
     'charset' => 'utf8'
   ]);
+/*
 
   $configs->env->development->mail->setFrom([
     'from' => 'Remetente',

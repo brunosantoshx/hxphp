@@ -1,0 +1,38 @@
+version: '2'
+services:
+    web:
+        build:
+            context: ./docker/nginx/
+        container_name: hxphp-web
+        volumes:
+            - ./:/var/www/html
+        ports:
+            - "8080:80"
+            - "3000:443"
+        links:
+            - app
+        restart: always
+        depends_on:
+            - app
+            - database
+
+    app:
+        build:
+            context: ./docker/php-fpm/
+        container_name: hxphp-app
+        volumes:
+            - ./:/var/www/html
+        links:
+            - database
+        environment:
+            - "DB_PORT=3306"
+            - "DB_HOST=database"
+
+    database:
+        image: mysql:5.7
+        container_name: hxphp-database
+        environment:
+            - "MYSQL_ROOT_PASSWORD=secret"
+            - "MYSQL_DATABASE=hxphp"
+        ports:
+            - "33061:3306"
