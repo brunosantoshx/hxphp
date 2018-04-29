@@ -1,5 +1,7 @@
 # Created by https://www.gitignore.io/api/osx,sass,less,macos,linux,bower,windows,eclipse,netbeans,composer,phpstorm,notepadpp,dreamweaver,aptanastudio,visualstudio,visualstudiocode
 
+composer.lock
+
 ### AptanaStudio ###
 
 .metadata
@@ -77,7 +79,6 @@ composer.lock
 # DW Dreamweaver added files
 _notes
 _compareTemp
-configs/
 dwsync.xml
 dw_php_codehinting.config
 *.mno
