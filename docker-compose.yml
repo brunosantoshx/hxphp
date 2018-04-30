@@ -12,24 +12,16 @@ services:
         environment:
             - NGINX_HOST=${NGINX_HOST}
         command: /bin/sh -c "envsubst '$$NGINX_HOST' < /etc/nginx/conf.d/default.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
-        links:
-            - app
         restart: always
         depends_on:
             - app
             - database
-
     app:
         image: nanoninja/php-fpm:${PHP_VERSION}
         restart: always
         container_name: hxphp-app
         volumes:
-            - ./:/var/www/html
-        links:
-            - database
-        environment:
-            - "DB_PORT=3306"
-            - "DB_HOST=database"
+            - "./:/var/www/html"
     myadmin:
         image: phpmyadmin/phpmyadmin
         container_name: phpmyadmin
