@@ -1,14 +1,17 @@
-version: '2'
+version: '3'
 services:
     web:
-        build:
-            context: ./docker/nginx/
+        image: nginx:alpine
         container_name: hxphp-web
         volumes:
-            - ./:/var/www/html
+            - "./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf"
+            - "./:/var/www/html"
         ports:
-            - "8080:80"
+            - "8000:80"
             - "3000:443"
+        environment:
+            - NGINX_HOST=${NGINX_HOST}
+        command: /bin/sh -c "envsubst '$$NGINX_HOST' < /etc/nginx/conf.d/default.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
         links:
             - app
         restart: always
@@ -17,8 +20,8 @@ services:
             - database
 
     app:
-        build:
-            context: ./docker/php-fpm/
+        image: nanoninja/php-fpm:${PHP_VERSION}
+        restart: always
         container_name: hxphp-app
         volumes:
             - ./:/var/www/html
@@ -31,7 +34,7 @@ services:
         image: phpmyadmin/phpmyadmin
         container_name: phpmyadmin
         ports:
-            - "8000:80"
+            - "8081:80"
         environment:
             - PMA_ARBITRARY=1
             - PMA_HOST=${MYSQL_HOST}
@@ -39,10 +42,16 @@ services:
         depends_on:
             - database
     database:
-        image: mysql:5.7
+        image: mysql
         container_name: hxphp-database
+        env_file:
+            - ".env"
         environment:
-            - "MYSQL_ROOT_PASSWORD=secret"
-            - "MYSQL_DATABASE=hxphp"
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            - MYSQL_USER=${MYSQL_USER}
+            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
         ports:
-            - "33061:3306"
+            - "8989:3306"
+        volumes:
+            - "./data/db/mysql:/var/lib/mysql"
