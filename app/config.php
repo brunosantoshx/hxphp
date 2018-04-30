@@ -13,8 +13,8 @@
   $configs->env->development->database->setConnectionData([
     'driver' => 'mysql',
     'host' => 'localhost',
-    'user' => 'root',
-    'password' => 'secret',
+    'user' => 'dev',
+    'password' => 'dev',
     'dbname' => 'hxphp',
     'charset' => 'utf8'
   ]);

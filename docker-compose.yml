@@ -26,7 +26,7 @@ services:
         image: phpmyadmin/phpmyadmin
         container_name: phpmyadmin
         ports:
-            - "8081:80"
+            - "8080:80"
         environment:
             - PMA_ARBITRARY=1
             - PMA_HOST=${MYSQL_HOST}
@@ -35,7 +35,8 @@ services:
             - database
     database:
         image: mysql
-        container_name: hxphp-database
+        container_name: ${MYSQL_HOST}
+        restart: always
         env_file:
             - ".env"
         environment:

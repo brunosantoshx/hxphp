@@ -1,6 +1,7 @@
 # Created by https://www.gitignore.io/api/osx,sass,less,macos,linux,bower,windows,eclipse,netbeans,composer,phpstorm,notepadpp,dreamweaver,aptanastudio,visualstudio,visualstudiocode
 
 composer.lock
+data/
 
 ### AptanaStudio ###
 
