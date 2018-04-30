@@ -12,7 +12,7 @@
 
   $configs->env->development->database->setConnectionData([
     'driver' => 'mysql',
-    'host' => 'localhost',
+    'host' => 'mysql',
     'user' => 'dev',
     'password' => 'dev',
     'dbname' => 'hxphp',
