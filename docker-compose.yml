@@ -27,7 +27,17 @@ services:
         environment:
             - "DB_PORT=3306"
             - "DB_HOST=database"
-
+    myadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        ports:
+            - "8000:80"
+        environment:
+            - PMA_ARBITRARY=1
+            - PMA_HOST=${MYSQL_HOST}
+        restart: always
+        depends_on:
+            - database
     database:
         image: mysql:5.7
         container_name: hxphp-database
