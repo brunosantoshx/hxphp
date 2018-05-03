@@ -2,6 +2,7 @@
 
 composer.lock
 data/
+.env
 
 ### AptanaStudio ###
 
