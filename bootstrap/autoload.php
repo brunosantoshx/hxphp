@@ -1,5 +1,9 @@
 <?php
 
+use Dotenv\Dotenv;
+use Whoops\Handler\PrettyPageHandler;
+use Whoops\Run;
+
 /**
  * Verifica se o autoload do Composer está configurado
  */
@@ -17,5 +21,10 @@ if (version_compare(PHP_VERSION, '7.0.0', '<')) {
 
 require_once($composer_autoload);
 
-$dotenv = new Dotenv\Dotenv(dirname(__DIR__));
+$whoops = new Run;
+$whoops->pushHandler(new PrettyPageHandler);
+$whoops->register();
+
+$dotenv = new Dotenv(dirname(__DIR__));
 $dotenv->load();
+
