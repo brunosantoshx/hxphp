@@ -11,12 +11,12 @@
   $configs->env->development->baseURI = '/';
 
   $configs->env->development->database->setConnectionData([
-    'driver' => 'mysql',
-    'host' => 'mysql',
-    'user' => 'dev',
-    'password' => 'dev',
-    'dbname' => 'hxphp',
-    'charset' => 'utf8'
+    'driver' => env('DB_DRIVER', 'mysql'),
+    'host' => env('MYSQL_HOST', 'mysql'),
+    'user' => env('MYSQL_USER', 'dev'),
+    'password' => env('MYSQL_PASSWORD', 'dev'),
+    'dbname' => env('MYSQL_DATABASE', 'hxphp'),
+    'charset' => env('MYSQL_CHARSET', 'utf8')
   ]);
 /*
 
