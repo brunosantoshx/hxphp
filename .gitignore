@@ -3,6 +3,7 @@
 composer.lock
 data/
 .env
+sftp-config.json
 
 ### AptanaStudio ###
 
