@@ -7,7 +7,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.0.0",
-        "hxphp/framework": "dev-master"
+        "hxphp/framework": "3.0.0"
     },
     "authors": [
         {
@@ -18,7 +18,7 @@
     ],
     "support": {
         "issues": "https://github.com/hxphp/framework/issues",
-        "wiki": "https://github.com/hxphp/docs"
+        "wiki": "https://hxphp.github.io/docs/3.0/index.html"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,

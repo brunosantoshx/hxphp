@@ -1,5 +1,9 @@
 <?php
 
+use Dotenv\Dotenv;
+use Whoops\Handler\PrettyPageHandler;
+use Whoops\Run;
+
 ob_start();
 
 ini_set('display_errors', 1);
@@ -13,3 +17,10 @@ if (!defined('ROOT_PATH')) {
 }
 
 define('APP_PATH', 'app' . DS);
+
+$whoops = new Run;
+$whoops->pushHandler(new PrettyPageHandler);
+$whoops->register();
+
+$dotenv = new Dotenv(dirname(__DIR__));
+$dotenv->load();
