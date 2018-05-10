@@ -1,5 +1,9 @@
 <?php
-class IndexController extends \HXPHP\System\Controller
+namespace App\Controllers\Admin;
+
+use HXPHP\System\Controller;
+
+class IndexController extends Controller
 {
     public function indexAction()
     {

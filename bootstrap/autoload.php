@@ -1,9 +1,7 @@
 <?php
 
+use App\Controllers\IndexController;
 use Dotenv\Dotenv;
-use Whoops\Handler\PrettyPageHandler;
-use Whoops\Run;
-
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -16,6 +14,8 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
+use Whoops\Handler\PrettyPageHandler;
+use Whoops\Run;
 
 /**
  * Verifica se o autoload do Composer está configurado
@@ -42,6 +42,10 @@ $dotenv = new Dotenv(dirname(__DIR__));
 $dotenv->load();
 
 $request = Request::createFromGlobals();
+
+$controller = new IndexController();
+
+$request->attributes->set('_controller', [$controller, 'testAction']);
 
 $dispatcher = new EventDispatcher();
 

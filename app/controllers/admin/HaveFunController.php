@@ -1,6 +1,9 @@
 <?php
+namespace App\Controllers\Admin;
 
-class HaveFunController extends \HXPHP\System\Controller
+use HXPHP\System\Controller;
+
+class HaveFunController extends Controller
 {
 
 }

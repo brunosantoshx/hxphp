@@ -20,6 +20,11 @@
         "issues": "https://github.com/hxphp/framework/issues",
         "wiki": "https://github.com/hxphp/docs"
     },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
