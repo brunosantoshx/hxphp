@@ -41,21 +41,9 @@ $whoops->register();
 $dotenv = new Dotenv(dirname(__DIR__));
 $dotenv->load();
 
-$routes = new RouteCollection();
-$routes->add('hello', new Route('/hello/{name}', array(
-    '_controller' => function (Request $request) {
-        return new Response(
-            sprintf("Hello %s", $request->get('name'))
-        );
-    })
-));
-
 $request = Request::createFromGlobals();
 
-$matcher = new UrlMatcher($routes, new RequestContext());
-
 $dispatcher = new EventDispatcher();
-$dispatcher->addSubscriber(new RouterListener($matcher, new RequestStack()));
 
 $controllerResolver = new ControllerResolver();
 $argumentResolver = new ArgumentResolver();
