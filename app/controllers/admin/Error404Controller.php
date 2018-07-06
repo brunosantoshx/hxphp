@@ -13,6 +13,7 @@ class Error404Controller extends \HXPHP\System\Controller
          * Isto ocorre porque os métodos de manipulação da view são apontados
          * para a raiz da pasta "app/views/".
          */
+		$this->view->setConfigs($this->configs, '', 'Error404Controller', 'index');
         $this->view->setHeader('header')
                 ->setPath('error404')
                 ->setFooter('footer')
