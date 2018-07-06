@@ -16,6 +16,14 @@
             "role": "Developer"
         }
     ],
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "pre-update-cmd": [
+            "php -r \"copy('.env.example', '.env');\""
+        ]
+    },
     "support": {
         "issues": "https://github.com/hxphp/framework/issues",
         "wiki": "https://hxphp.github.io/docs/3.0/index.html"
