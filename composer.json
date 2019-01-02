@@ -7,7 +7,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.0.0",
-        "hxphp/framework": "3.0.0"
+        "hxphp/framework": "3.*"
     },
     "authors": [
         {
